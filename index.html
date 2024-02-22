@@ -1,5 +1,4 @@
-
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html ⚡ lang="en">
 
 <head>
@@ -70,6 +69,51 @@
         .back-to-top:hover {
             opacity: 0.8;
         }
+
+        /* Estilos para el menú responsive */
+        .sidebar {
+            width: 250px;
+            background-color: #111;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            height: 100%;
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 15px;
+            border-bottom: 1px solid #333;
+        }
+
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .menu-btn span {
+            color: #fff;
+        }
     </style>
     <style>
         /* Estilos de Tailwind CSS */
@@ -86,17 +130,25 @@
 <header class="bg-blue-600 text-white p-4">
     <div class="container mx-auto flex justify-between items-center">
         <span class="font-bold text-lg">Megacurso IA - Sami Halawa</span>
-        <nav class="nav-links">
-            <ul class="flex space-x-4">
-                <li><a href="#concepto-1">Comprensión básica de Git y GitHub</a></li>
-                <li><a href="#concepto-2">HTML básico</a></li>
-                <li><a href="#concepto-3">CSS básico</a></li>
-                <li><a href="#concepto-4">JavaScript básico</a></li>
-                <!-- Agrega más enlaces para cada sección -->
-                <li><a href="#concepto-5">Python para IA</a></li>
-                <li><a href="#concepto-6">Introducción a Machine Learning</a></li>
-                <li><a href="#concepto-7">Redes Neuronales Artificiales</a></li>
-                <li><a href="#concepto-8">Procesamiento de Lenguaje Natural</a></li>
+        <!-- Botón del menú -->
+        <div class="menu-btn" on="tap:sidebar.toggle">
+            <span>&#9776;</span>
+        </div>
+    </div>
+</header>
+
+<!-- Barra lateral del menú -->
+<amp-sidebar id="sidebar" layout="nodisplay" side="left" class="sidebar">
+    <ul>
+        <li><a href="#concepto-1">Comprensión básica de Git y GitHub</a></li>
+        <li><a href="#concepto-2">HTML básico</a></li>
+        <li><a href="#concepto-3">CSS básico</a></li>
+        <li><a href="#concepto-4">JavaScript básico</a></li>
+        <!-- Agrega más enlaces para cada sección -->
+        <li><a href="#concepto-5">Python para IA</a></li>
+        <li><a href="#concepto-6">Introducción a Machine Learning</a></li>
+        <li><a href="#concepto-7">Redes Neuronales Artificiales</a></li>
+         <li><a href="#concepto-8">Procesamiento de Lenguaje Natural</a></li>
                 <li><a href="#concepto-9">Visión por Computadora</a></li>
                 <li><a href="#concepto-10">Aprendizaje Profundo</a></li>
                 <li><a href="#concepto-11">Algoritmos Genéticos</a></li>
