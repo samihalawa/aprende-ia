@@ -1,11 +1,13 @@
-<!DOCTYPE html>
+
+   <!DOCTYPE html>
 <html ⚡ lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <title>Megacurso IA - Sami Halawa</title>
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"> <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
     <style amp-custom>
         /* Estilos personalizados */
         nav ul {
@@ -36,6 +38,17 @@
         .slide {
             width: 100%;
             height: 300px;
+            position: relative;
+        }
+
+        .slide img {
+            object-fit: cover;
+            filter: blur(5px);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
 
         /* Estilos para el botón de volver arriba */
@@ -69,28 +82,65 @@
 </head>
 
 <body class="bg-gray-100">
-    <header class="bg-blue-600 text-white p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <span class="font-bold text-lg">Megacurso IA - Sami Halawa</span>
-            <nav class="nav-links">
-                <ul class="flex space-x-4">
-                    <li><a href="#concepto-1">Comprensión básica de Git y GitHub</a></li>
-                    <li><a href="#concepto-2">HTML básico</a></li>
-                    <li><a href="#concepto-3">CSS básico</a></li>
-                    <li><a href="#concepto-4">JavaScript básico</a></li>
-                    <!-- Agrega más enlaces para cada sección -->
-                </ul>
-            </nav>
-        </div>
-    </header>
+
+<header class="bg-blue-600 text-white p-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <span class="font-bold text-lg">Megacurso IA - Sami Halawa</span>
+        <nav class="nav-links">
+            <ul class="flex space-x-4">
+                <li><a href="#concepto-1">Comprensión básica de Git y GitHub</a></li>
+                <li><a href="#concepto-2">HTML básico</a></li>
+                <li><a href="#concepto-3">CSS básico</a></li>
+                <li><a href="#concepto-4">JavaScript básico</a></li>
+                <!-- Agrega más enlaces para cada sección -->
+                <li><a href="#concepto-5">Python para IA</a></li>
+                <li><a href="#concepto-6">Introducción a Machine Learning</a></li>
+                <li><a href="#concepto-7">Redes Neuronales Artificiales</a></li>
+                <li><a href="#concepto-8">Procesamiento de Lenguaje Natural</a></li>
+                <li><a href="#concepto-9">Visión por Computadora</a></li>
+                <li><a href="#concepto-10">Aprendizaje Profundo</a></li>
+                <li><a href="#concepto-11">Algoritmos Genéticos</a></li>
+                <li><a href="#concepto-12">Optimización de Algoritmos</a></li>
+                <li><a href="#concepto-13">Big Data y IA</a></li>
+                <li><a href="#concepto-14">Ética en la IA</a></li>
+                <li><a href="#concepto-15">Aplicaciones Prácticas de IA</a></li>
+                <li><a href="#concepto-16">Desarrollo de Proyectos</a></li>
+                <li><a href="#concepto-17">Implementación en Empresas</a></li>
+                <li><a href="#concepto-18">IA en el Sector Médico</a></li>
+                <li><a href="#concepto-19">IA en la Industria Automotriz</a></li>
+                <li><a href="#concepto-20">IA en la Educación</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
     <section class="hero bg-gradient-to-r from-blue-400 to-purple-600">
         <div class="container mx-auto py-12 text-center">
             <h1 class="text-4xl font-bold text-white mb-4">Descubre el Megacurso de IA</h1>
             <p class="text-lg text-white">Aprende los conceptos fundamentales para convertirte en un experto en inteligencia artificial.</p>
+            
+            <!-- Elementos animados de AMP -->
+            <amp-carousel width="400" height="300" layout="responsive" type="slides">
+                <div>
+                    <amp-img src="https://via.placeholder.com/800x600" layout="fill" alt="Imagen Desenfocada"></amp-img>
+                    <h2>Enfoque práctico</h2>
+                    <p>Aprende de manera práctica y útil.</p>
+                </div>
+                <div>
+                    <amp-img src="https://via.placeholder.com/800x600" layout="fill" alt="Imagen Desenfocada"></amp-img>
+                    <h2>Aprendizaje progresivo</h2>
+                    <p>Avanza paso a paso en tu aprendizaje.</p>
+                </div>
+                <div>
+                    <amp-img src="https://via.placeholder.com/800x600" layout="fill" alt="Imagen Desenfocada"></amp-img>
+                    <h2>Conceptos fundamentales</h2>
+                    <p>Domina los conceptos básicos de la inteligencia artificial.</p>
+                </div>
+            </amp-carousel>
         </div>
     </section>
 
+    
     <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
         <!-- Concept Block 1 -->
             <div class="bg-white rounded-lg shadow-md p-6">
