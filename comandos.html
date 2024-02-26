@@ -169,3 +169,97 @@
             <tbody>
                 
                 
+
+
+
+                
+    <!-- Script JavaScript -->
+    <script>
+        // Array para almacenar los comandos
+        let commands = [
+            { name: "cat", description: "Muestra el contenido del archivo (cat nombrearcivo) y aparece en la consola" },
+            { name: "git status", description: "Muestra el estado de los archivos des ese repositorio (en verde: actualizados, en rojo: pendiente)" },
+            { name: "git status -s", description: "Ofrece los datos de Status de forma más reducida" },
+            { name: "git log", description: "Te muestra el registro de commits con sus comentarios y un identificador único para cada uno" },
+            { name: "git log --oneline", description: "Lo mismo que el de arriba pero de forma más esquematizada y limpia" },
+            { name: "git init", description: "Inicia el proyecto dentro de la carpeta donde lo ejecutas" },
+            { name: "git add", description: "Añade un archivo seleccionado al repositorio" },
+            { name: "git add .", description: "Añade todos los archivos de esa carpeta al repositorio" },
+            { name: "git branch", description: "Nos muestra la rama en la que estamos trabajando" },
+            { name: "git checkout -b", description: "Crea una rama nueva (git checkout -b nuevarama) Creará una rama llamada: nuevarama y te llevará a ella automáticamente al presionar intro" },
+            { name: "git checkout", description: "Seguido del nombre de la rama a la que quieras acceder te llevará a ella sin crear una nueva" },
+            { name: "git merge", description: "Incluye los cambios de una subrama a la rama principal (Debes estar dentro de la rama principal para que surja efecto)" },
+            { name: "git push", description: "Sube los archivos que has modificado a la nube para que todos los colaboradores tengan acceso a ellos" },
+            { name: "git push -u", description: "Igual que el de arriba pero además guarda la dirección de donde quieres que se suban esos archivos en la nube, para que no la tengas que introducir cada vez" },
+            { name: "git pull", description: "Trae los archivos que ha subido un compañero a la nube para tener la versión actualizada" }
+        ];
+
+        // Función para renderizar los comandos en la tabla 
+        function renderCommands() {
+            const tableBody = document.querySelector('#commandTable tbody');
+            tableBody.innerHTML = '';
+
+            commands.forEach((command, index) => {
+                const row = `<tr data-index="${index}">
+                                <td class="px-4 py-2" on="tap:clipboard.copyTextToClipboard('${command.name}')">${command.name}<span class="copy-icon">📋</span></td>
+                                <td class="px-4 py-2">${command.description}</td>
+                            </tr>`;
+                tableBody.insertAdjacentHTML('beforeend', row);
+            });
+
+            // Activar sortable.js para cambiar el orden de las filas
+            const table = document.getElementById('commandTable');
+            new Sortable(table, {
+                animation: 150,
+                handle: 'td',
+                onUpdate: function (evt) {
+                    // Reordenar el array de comandos
+                    const oldIndex = evt.oldIndex;
+                    const newIndex = evt.newIndex;
+                    const movedCommand = commands.splice(oldIndex, 1)[0];
+                    commands.splice(newIndex, 0, movedCommand);
+                }
+            });
+        }
+
+        // Función para añadir un nuevo comando
+        function addCommand() {
+            const name = prompt('Ingrese el nombre del comando:');
+            const description = prompt('Ingrese la descripción del comando:');
+            if (name && description) {
+                commands.push({ name, description });
+                renderCommands();
+            }
+        }
+
+        // Evento click para añadir un comando
+        document.getElementById('addCommandBtn').addEventListener('click', addCommand);
+
+        // Renderizar los comandos al cargar la página
+        renderCommands();
+    </script>
+
+    <!-- Scroll to top -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var backToTopButton = document.querySelector('.back-to-top');
+
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('block');
+                } else {
+                    backToTopButton.classList.remove('block');
+                }
+            });
+
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+
+</body></html>
