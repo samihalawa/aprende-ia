@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <title>Megacurso IA - Sami Halawa</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+ 
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrar Comandos</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Sortable.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+ 
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <style amp-custom="">
         /* Estilos personalizados */
@@ -276,6 +283,77 @@
     <script type="text/plain" target="amp-script" class="i-amphtml-element i-amphtml-layout-size-defined i-amphtml-layout" id="amp-script-copy-script" style="display: none;"></script>
     <div class="i-amphtml-layout-container" style="position: relative; contain: layout; overflow: hidden; -webkit-appearance: none !important;" tabindex="-1"><script type="module" src="https://cdn.ampproject.org/v0/amp-script-0.1.js" crossorigin="anonymous"></script><script type="module" src="https://megacurso-ia.samihalawa.com/copy-script.js" crossorigin="anonymous"></script></div></amp-script>
 
+
+<scrip>
+
+    // Array para almacenar los comandos
+let commands = [];
+
+// Función para renderizar los comandos en la tabla 
+function renderCommands() {
+    const tableBody = document.querySelector('#commandTable tbody');
+    tableBody.innerHTML = '';
+
+    commands.forEach((command, index) => {
+        const row = `<tr data-index="${index}">
+                        <td class="px-4 py-2">${command.name}</td>
+                        <td class="px-4 py-2">${command.description}</td>
+                        <td class="px-4 py-2">
+                            <button class="bg-yellow-500 text-white py-1 px-2 rounded mr-2 edit-btn">Editar</button>
+                            <button class="bg-red-500 text-white py-1 px-2 rounded delete-btn">Eliminar</button>
+                        </td>
+                    </tr>`;
+        tableBody.insertAdjacentHTML('beforeend', row);
+    });
+
+    // Activar sortable.js para cambiar el orden de las filas
+    const table = document.getElementById('commandTable');
+    new Sortable(table, {
+        animation: 150,
+        handle: 'td',
+        onUpdate: function (evt) {
+            // Reordenar el array de comandos
+            const oldIndex = evt.oldIndex;
+            const newIndex = evt.newIndex;
+            const movedCommand = commands.splice(oldIndex, 1)[0];
+            commands.splice(newIndex, 0, movedCommand);
+        }
+    });
+}
+
+// Función para añadir un nuevo comando
+function addCommand() {
+    const name = prompt('Ingrese el nombre del comando:');
+    const description = prompt('Ingrese la descripción del comando:');
+    if (name && description) {
+        commands.push({ name, description });
+        renderCommands();
+    }
+}
+
+// Función para eliminar un comando
+function deleteCommand(index) {
+    commands.splice(index, 1);
+    renderCommands();
+}
+
+// Evento click para añadir un comando
+document.getElementById('addCommandBtn').addEventListener('click', addCommand);
+
+// Delegación de eventos para los botones de editar y eliminar
+document.getElementById('commandTable').addEventListener('click', function (event) {
+    const target = event.target;
+    if (target.classList.contains('delete-btn')) {
+        const index = parseInt(target.closest('tr').dataset.index);
+        deleteCommand(index);
+    }
+});
+
+// Renderizar los comandos al cargar la página
+renderCommands();
+
+</scrip>
+    
 <!-- Scroll to top -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
