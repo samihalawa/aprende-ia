@@ -137,14 +137,15 @@
         </div>
     </header>
 
-    <!-- Barra lateral del menú -->
-    <amp-sidebar id="sidebar" layout="nodisplay" side="left" class="sidebar" role="menu" tabindex="-1" hidden="">
-        <button class="i-amphtml-screen-reader" tabindex="-1">Close the sidebar</button>
-        <ul>
-            <li><a href="#concepto-1">Comandos Básicos de Bash</a></li>
-        </ul>
-        <button class="i-amphtml-screen-reader" tabindex="-1">Close the sidebar</button>
-    </amp-sidebar>
+
+<!-- Barra lateral del menú -->
+<amp-sidebar id="sidebar" layout="nodisplay" side="left" class="sidebar" role="menu" tabindex="-1" hidden="">
+    <button class="i-amphtml-screen-reader" tabindex="-1" on="tap:sidebar.close">Close the sidebar</button>
+    <ul>
+        <li><a href="#concepto-1">Comandos Básicos de Bash</a></li>
+    </ul>
+    <button class="i-amphtml-screen-reader" tabindex="-1" on="tap:sidebar.close">Close the sidebar</button>
+</amp-sidebar>
 
     <!-- Contenido principal -->
     <section class="hero bg-gradient-to-r from-blue-400 to-purple-600">
