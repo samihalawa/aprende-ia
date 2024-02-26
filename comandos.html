@@ -139,60 +139,43 @@
     <!-- Barra lateral del menú -->
     <amp-sidebar id="sidebar" layout="nodisplay" side="left" class="sidebar i-amphtml-element i-amphtml-layout-nodisplay i-amphtml-overlay i-amphtml-scrollable i-amphtml-built i-amphtml-layout" i-amphtml-layout="nodisplay" role="menu" tabindex="-1" hidden=""><button class="i-amphtml-screen-reader" tabindex="-1">Close the sidebar</button>
         <ul>
-            
             <li><a href="#concepto-1">Comandos Básicos de Bash</a></li>
         </ul>
-    <button class="i-amphtml-screen-reader" tabindex="-1">Close the sidebar</button></amp-sidebar>
+        <button class="i-amphtml-screen-reader" tabindex="-1">Close the sidebar</button>
+    </amp-sidebar>
 
     <!-- Contenido principal -->
     <section class="hero bg-gradient-to-r from-blue-400 to-purple-600">
-    <div class="container mx-auto py-12 text-center">
-        <h1 class="text-4xl font-bold text-white mb-4">Comandos de Bash</h1>
-        <p class="text-lg text-white">Aprende los conceptos fundamentales para convertirte en un experto en inteligencia artificial.</p>
-        
-        <!-- Elementos animados de AMP -->
-        
+        <div class="container mx-auto py-12 text-center">
+            <h1 class="text-4xl font-bold text-white mb-4">Comandos de Bash</h1>
+            <p class="text-lg text-white">Aprende los conceptos fundamentales para convertirte en un experto en inteligencia artificial.</p>
+        </div>
+    </section>
 
-    </div>
-</section><main class="container mx-auto">
-    <!-- Sección de la tabla de comandos -->
-    <section id="comandos" class="container mx-auto py-12">
-    <h2 class="text-2xl font-bold mb-4">Comandos Básicos de Bash</h2>
-    <div class="overflow-x-auto">
-        <table class="command-table">
-            <thead>
-                <tr>
-                    <th class="px-4 py-2 bg-gray-200">Comando</th>
-                    <th class="px-4 py-2 bg-gray-200">Descripción</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-                
+    <main class="container mx-auto">
+        <!-- Sección de la tabla de comandos -->
+        <section id="comandos" class="container mx-auto py-12">
+            <h2 class="text-2xl font-bold mb-4">Comandos Básicos de Bash</h2>
+            <div class="overflow-x-auto">
+                <table id="commandTable" class="command-table">
+                    <thead>
+                        <tr>
+                            <th class="px-4 py-2 bg-gray-200">Comando</th>
+                            <th class="px-4 py-2 bg-gray-200">Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <button id="addCommandBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Añadir Comando</button>
+        </section>
+    </main>
 
-
-
-                
     <!-- Script JavaScript -->
     <script>
         // Array para almacenar los comandos
-        let commands = [
-            { name: "cat", description: "Muestra el contenido del archivo (cat nombrearcivo) y aparece en la consola" },
-            { name: "git status", description: "Muestra el estado de los archivos des ese repositorio (en verde: actualizados, en rojo: pendiente)" },
-            { name: "git status -s", description: "Ofrece los datos de Status de forma más reducida" },
-            { name: "git log", description: "Te muestra el registro de commits con sus comentarios y un identificador único para cada uno" },
-            { name: "git log --oneline", description: "Lo mismo que el de arriba pero de forma más esquematizada y limpia" },
-            { name: "git init", description: "Inicia el proyecto dentro de la carpeta donde lo ejecutas" },
-            { name: "git add", description: "Añade un archivo seleccionado al repositorio" },
-            { name: "git add .", description: "Añade todos los archivos de esa carpeta al repositorio" },
-            { name: "git branch", description: "Nos muestra la rama en la que estamos trabajando" },
-            { name: "git checkout -b", description: "Crea una rama nueva (git checkout -b nuevarama) Creará una rama llamada: nuevarama y te llevará a ella automáticamente al presionar intro" },
-            { name: "git checkout", description: "Seguido del nombre de la rama a la que quieras acceder te llevará a ella sin crear una nueva" },
-            { name: "git merge", description: "Incluye los cambios de una subrama a la rama principal (Debes estar dentro de la rama principal para que surja efecto)" },
-            { name: "git push", description: "Sube los archivos que has modificado a la nube para que todos los colaboradores tengan acceso a ellos" },
-            { name: "git push -u", description: "Igual que el de arriba pero además guarda la dirección de donde quieres que se suban esos archivos en la nube, para que no la tengas que introducir cada vez" },
-            { name: "git pull", description: "Trae los archivos que ha subido un compañero a la nube para tener la versión actualizada" }
-        ];
+        let commands = [];
 
         // Función para renderizar los comandos en la tabla 
         function renderCommands() {
@@ -206,20 +189,6 @@
                             </tr>`;
                 tableBody.insertAdjacentHTML('beforeend', row);
             });
-
-            // Activar sortable.js para cambiar el orden de las filas
-            const table = document.getElementById('commandTable');
-            new Sortable(table, {
-                animation: 150,
-                handle: 'td',
-                onUpdate: function (evt) {
-                    // Reordenar el array de comandos
-                    const oldIndex = evt.oldIndex;
-                    const newIndex = evt.newIndex;
-                    const movedCommand = commands.splice(oldIndex, 1)[0];
-                    commands.splice(newIndex, 0, movedCommand);
-                }
-            });
         }
 
         // Función para añadir un nuevo comando
@@ -229,7 +198,22 @@
             if (name && description) {
                 commands.push({ name, description });
                 renderCommands();
+                updateCommandsFile(commands); // Guardar los comandos en el archivo JSON
             }
+        }
+
+        // Actualizar el archivo JSON con los comandos
+        function updateCommandsFile(commands) {
+            const content = JSON.stringify(commands, null, 2);
+            const blob = new Blob([content], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'comandos.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
         }
 
         // Evento click para añadir un comando
@@ -260,6 +244,5 @@
             });
         });
     </script>
-
-
-</body></html>
+</body>
+</html>
