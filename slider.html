@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megacurso IA - Sami Halawa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <style>
+        /* Estilos personalizados */
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-right: 1rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            opacity: 0.8;
+        }
+
+        /* Estilos para el slider */
+        .hero {
+            position: relative;
+        }
+
+        .slide {
+            width: 100%;
+            height: 300px;
+            position: relative;
+        }
+
+        .slide img {
+            object-fit: cover;
+            filter: blur(5px);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Estilos para el footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+    <style>
+        /* Estilos para el botón de cerrar la barra lateral */
+        .close-sidebar {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 999;
+            background-color: transparent;
+            border: none;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Estilos adicionales para el slider */
+        .slider {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .slider .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slider .slides img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <header class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <span class="font-bold text-lg">Megacurso IA - Sami Halawa</span>
+            <!-- Botón del menú -->
+            <div class="menu-btn" on="tap:sidebar.toggle">
+                <span>&#9776;</span>
+            </div>
+        </div>
+    </header>
+    <button class="i-amphtml-screen-reader close-sidebar" tabindex="-1">Close the sidebar</button>
+
+  <section class="hero bg-gradient-to-r from-blue-400 to-purple-600">
+        <div class="container mx-auto py-12 text-center">
+            <h1 class="text-4xl font-bold text-white mb-4">Descubre el Megacurso de IA</h1>
+            <p class="text-lg text-white">Aprende los conceptos fundamentales para convertirte en un experto en inteligencia artificial.</p>
+            
+            <!-- Elementos animados de AMP -->
+            <div class="slider">
+                <div class="slides">
+                    <div>
+                        <img src="https://via.placeholder.com/1600x900" alt="Imagen Desenfocada">
+                        <h2>Enfoque práctico</h2>
+                        <p>Aprende de manera práctica y útil.</p>
+                    </div>
+                    <div>
+                        <img src="https://via.placeholder.com/1600x900" alt="Imagen Desenfocada">
+                        <h2>Expertos en el campo</h2>
+                        <p>Conoce de la mano de expertos en el área.</p>
+                    </div>
+                    <div>
+                        <img src="https://via.placeholder.com/1600x900" alt="Imagen Desenfocada">
+                        <h2>Proyectos reales</h2>
+                        <p>Trabaja en proyectos reales para consolidar tu aprendizaje.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Barra lateral del menú -->
+    <amp-sidebar id="sidebar" layout="nodisplay" side="left" class="sidebar i-amphtml-element i-amphtml-layout-nodisplay i-amphtml-overlay i-amphtml-scrollable i-amphtml-built i-amphtml-layout" i-amphtml-layout="nodisplay" role="menu" tabindex="-1" hidden=""><button class="i-amphtml-screen-reader" tabindex="-1">Close the sidebar</button>
+        <ul>
+            <li><a href="#concepto-1">Comprensión básica de Git y GitHub</a></li>
+            <li><a href="#concepto-2">HTML básico</a></li>
+            <li><a href="#concepto-3">CSS básico</a></li>
+            <li><a href="#concepto-4">JavaScript básico</a></li>
+            <!-- Agrega más enlaces para cada sección -->
+            <li><a href="#concepto-5">Python para IA</a></li>
+            <li><a href="#concepto-6">Introducción a Machine Learning</a></li>
+            <li><a href="#concepto-7">Redes Neuronales Artificiales</a></li>
+            <li><a href="#concepto-8">Procesamiento de Lenguaje Natural</a></li>
+            <li><a href="#concepto-9">Visión por Computadora</a></li>
+            <li><a href="#concepto-10">Aprendizaje Profundo</a></li>
+            <li><a href="#concepto-11">Algoritmos Genéticos</a></li>
+            <li><a href="#concepto-12">Optimización de Algoritmos</a></li>
+            <li><a href="#concepto-13">Big Data y IA</a></li>
+            <li><a href="#concepto-14">Ética en la IA</a></li>
+            <li><a href="#concepto-15">Aplicaciones Prácticas de IA</a></li>
+            <li><a href="#concepto-16">Desarrollo de Proyectos</a></li>
+            <li><a href="#concepto-17">Implementación en Empresas</a></li>
+            <li><a href="#concepto-18">IA en el Sector Médico</a></li>
+            <li><a href="#concepto-19">IA en la Industria Automotriz</a></li>
+            <li><a href="#concepto-20">IA en la Educación</a></li>
+        </ul>
+
+
+        <button class="sidebar-close" on="tap:sidebar.close">&times;</button>
+    </amp-sidebar>  
+    <button class="i-amphtml-screen-reader" tabindex="-1">Close the sidebar</button></amp-sidebar>
+ 
+<section class="hero bg-gradient-to-r from-blue-400 to-purple-600">
+    <div class="container mx-auto py-12 text-center">
+        <h1 class="text-4xl font-bold text-white mb-4">Descubre el Megacurso de IA</h1>
+        <p class="text-lg text-white">Aprende los conceptos fundamentales para convertirte en un experto en inteligencia artificial.</p>
+        
+        <!-- Elementos animados de AMP -->
+        <amp-carousel width="400" height="300" layout="responsive" type="slides">
+            <div>
+                <amp-img src="https://via.placeholder.com/800x600" layout="fill" alt="Imagen Desenfocada"></amp-img>
+                <h2>Enfoque práctico</h2>
+                <p>Aprende de manera práctica y útil.</p>
+            </div>
+            <div>
+                <amp-img src="https://via.placeholder.com/800x600" layout="fill" alt="Imagen Desenfocada"></amp-img>
+                <h2>Expertos en el campo</h2>
+                <p>Conoce de la mano de expertos en el área.</p>
+            </div>
+            <div>
+                <amp-img src="https://via.placeholder.com/800x600" layout="fill" alt="Imagen Desenfocada"></amp-img>
+                <h2>Proyectos reales</h2>
+                <p>Trabaja en proyectos reales para consolidar tu aprendizaje.</p>
+            </div>
+        </amp-carousel>
+
+    </div>
+</section>
+
+
+    
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
+        <!-- Concept Block 1 -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-lg font-bold mb-4">Comprensión básica de Git y GitHub</h3>
+                <p class="text-gray-700 mb-4">Permite colaborar en proyectos de código, controlar versiones y publicar proyectos para que otros puedan verlos o contribuir.</p>
+                <ul class="text-blue-600">
+                    <li><a href="https://rogerdudler.github.io/git-guide/index.es.html" target="_blank">Git - La guía sencilla</a></li>
+                    <li><a href="https://platzi.com/cursos/github/" target="_blank">Curso básico de GitHub de Platzi</a></li>
+                    <li><a href="https://www.udemy.com/course/git-y-github/" target="_blank">Git y GitHub para principiantes por Udemy</a></li>
+                </ul>
+            </div>
+        <!-- Concept Block 2: HTML básico -->
+<div class="bg-white rounded-lg shadow-md p-6">
+    <h3 class="text-lg font-bold mb-4">HTML básico</h3>
+    <p class="text-gray-700 mb-4">Es la base de cualquier página web, esencial para crear contenido y estructuras en la web.</p>
+    <ul class="text-blue-600">
+        <li><a href="https://ed.team/cursos/html" target="_blank">Curso de HTML desde cero de EDteam</a></li>
+        <li><a href="https://www.w3schools.com/html/" target="_blank">HTML básico por W3Schools</a></li>
+        <li><a href="https://developer.mozilla.org/es/docs/Learn/Getting_started_with_the_web/HTML_basics" target="_blank">Tutorial de HTML para principiantes de MDN</a></li>
+    </ul>
+</div>
+
+<!-- Concept Block 3: CSS básico -->
+<div class="bg-white rounded-lg shadow-md p-6">
+    <h3 class="text-lg font-bold mb-4">CSS básico</h3>
+    <p class="text-gray-700 mb-4">Controla el aspecto visual de las páginas web, esencial para el diseño web responsivo y atractivo.</p>
+    <ul class="text-blue-600">
+        <li><a href="https://ed.team/cursos/css" target="_blank">Curso de CSS desde cero de EDteam</a></li>
+        <li><a href="https://www.w3schools.com/css/" target="_blank">CSS básico por W3Schools</a></li>
+        <li><a href="https://developer.mozilla.org/es/docs/Learn/Getting_started_with_the_web/CSS_basics" target="_blank">Guía de introducción a CSS de MDN</a></li>
+    </ul>
+</div>
+
+<!-- Concept Block 4: JavaScript básico -->
+<div class="bg-white rounded-lg shadow-md p-6">
+    <h3 class="text-lg font-bold mb-4">JavaScript básico</h3>
+    <p class="text-gray-700 mb-4">Añade interactividad a las páginas web, esencial para crear aplicaciones web modernas.</p>
+    <ul class="text-blue-600">
+        <li><a href="https://platzi.com/cursos/javascript/" target="_blank">Curso de JavaScript para principiantes de Platzi</a></li>
+        <li><a href="https://www.w3schools.com/js/" target="_blank">JavaScript básico por W3Schools</a></li>
+        <li><a href="https://developer.mozilla.org/es/docs/Learn/Getting_started_with_the_web/JavaScript_basics" target="_blank">Introducción a JavaScript de MDN</a></li>
+    </ul>
+</div>
+
+<!-- Concept Block 5: Uso de APIs -->
+<div class="bg-white rounded-lg shadow-md p-6">
+    <h3 class="text-lg font-bold mb-4">Uso de APIs</h3>
+    <p class="text-gray-700 mb-4">Permite integrar funcionalidades externas y datos en tus aplicaciones, como mapas, datos del tiempo, o redes sociales.</p>
+    <ul class="text-blue-600">
+        <li><a href="https://platzi.com/cursos/apis/" target="_blank">Curso de consumo de APIs con JavaScript de Platzi</a></li>
+        <li><a href="https://developer.mozilla.org/es/docs/Learn/JavaScript/Client-side_web_APIs/Introduction" target="_blank">Tutorial de introducción a APIs de MDN</a></li>
+        <li><a href="https://www.freecodecamp.org/news/how-to-use-an-api-with-javascript/" target="_blank">Cómo usar APIs con JavaScript</a></li>
+    </ul>
+</div>
+
+        <!-- Concepto 6: Fundamentos de Python -->
+<div class="bg-white rounded-lg shadow-md p-6">
+    <h3 class="text-lg font-bold mb-4">Fundamentos de Python</h3>
+    <p class="text-gray-700 mb-4">Ideal para todo tipo de programación, desde scripts simples hasta inteligencia artificial y análisis de datos.</p>
+    <ul class="text-blue-600">
+        <li><a href="https://ed.team/cursos/python" target="_blank">Curso Python para principiantes de EDteam</a></li>
+        <li><a href="https://www.w3schools.com/python/" target="_blank">Python básico por W3Schools</a></li>
+        <li><a href="https://docs.python.org/es/3/tutorial/" target="_blank">Tutorial oficial de Python</a></li>
+    </ul>
+</div>
+
+<!-- Concepto 7: Entornos virtuales -->
+<div class="bg-white rounded-lg shadow-md p-6">
+    <h3 class="text-lg font-bold mb-4">Entornos virtuales</h3>
+    <p class="text-gray-700 mb-4">Permite gestionar dependencias de proyectos de forma aislada, evitando conflictos entre versiones de paquetes.</p>
+    <ul class="text-blue-600">
+        <li><a href="https://realpython.com/pipenv-guide/" target="_blank">Uso de Pipenv para entornos virtuales</a></li>
+        <li><a href="https://docs.python.org/es/3/tutorial/venv.html" target="_blank">Guía oficial de entornos virtuales de Python</a></li>
+        <li><a href="https://www.freecodecamp.org/news/how-to-use-python-virtual-environments-with-the-built-in-venv-module/" target="_blank">Tutorial de venv por freecodecamp</a></li>
+    </ul>
+</div>
+
+<!-- Concepto 8: Uso de frameworks de desarrollo web -->
+<div class="bg-white rounded-lg shadow-md p-6">
+    <h3 class="text-lg font-bold mb-4">Uso de frameworks de desarrollo web</h3>
+    <p class="text-gray-700 mb-4">Acelera el desarrollo de aplicaciones web proporcionando estructuras y herramientas listas para usar.</p>
+    <ul class="text-blue-600">
+        <li><a href="https://platzi.com/cursos/flask/" target="_blank">Curso de Flask por Platzi</a></li>
+        <li><a href="https://developer.mozilla.org/es/docs/Learn/Server-side/Django/Introduction" target="_blank">Introducción a Django por MDN</a></li>
+        <li><a href="https://www.djangoproject.com/start/" target="_blank">Curso de Django para principiantes</a></li>
+    </ul>
+</div>
+
+<!-- Concepto 9: Bases de datos -->
+<div class="bg-white rounded-lg shadow-md p-6">
+    <h3 class="text-lg font-bold mb-4">Bases de datos</h3>
+    <p class="text-gray-700 mb-4">Fundamental para almacenar, organizar y acceder a datos de manera eficiente en aplicaciones web y otros tipos de software.</p>
+    <ul class="text-blue-600">
+        <li><a href="https://ed.team/cursos/sql" target="_blank">Curso de SQL básico de EDteam</a></li>
+        <li><a href="https://www.w3schools.com/sql/" target="_blank">Tutorial de bases de datos SQL por W3Schools</a></li>
+        <li><a href="https://university.mongodb.com/courses/M001/about" target="_blank">Curso de MongoDB para principiantes</a></li>
+    </ul>
+</div>
+
+<!-- Concepto 10: Deploy de aplicaciones -->
+<div class="bg-white rounded-lg shadow-md p-6">
+    <h3 class="text-lg font-bold mb-4">Deploy de aplicaciones</h3>
+    <p class="text-gray-700 mb-4">Publicar aplicaciones en la web hace que sean accesibles para un público amplio.</p>
+    <ul class="text-blue-600">
+        <li><a href="https://platzi.com/cursos/heroku/" target="_blank">Curso de Heroku para principiantes de Platzi</a></li>
+        <li><a href="https://pages.github.com/" target="_blank">Guía para publicar una página web en GitHub Pages</a></li>
+        <li><a href="https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/" target="_blank">Tutorial de Netlify para despliegue de sitios web</a></li>
+    </ul>
+</div>
+
+<!-- Concepto 11: Uso básico de la terminal o línea de comandos -->
+<div class="bg-white rounded-lg shadow-md p-6">
+    <h3 class="text-lg font-bold mb-4">Uso básico de la terminal o línea de comandos</h3>
+    <p class="text-gray-700 mb-4">Permite una gestión eficiente de archivos, directorios y programas, esencial para el desarrollo de software.</p>
+    <ul class="text-blue-600">
+        <li><a href="https://www.codecademy.com/learn/learn-the-command-line" target="_blank">Curso de línea de comandos de Codecademy</a></li>
+        <li><a href="https://linuxjourney.com/" target="_blank">Tutorial básico de terminal de Linux</a></li>
+        <li><a href="https://docs.microsoft.com/es-es/windows/terminal/" target="_blank">Introducción a la terminal de Windows</a></li>
+    </ul>
+</div>
+     <!-- Concepto 12: Versionado semántico -->
+<div class="bg-white rounded-lg shadow-md p-6">
+    <h3 class="text-lg font-bold mb-4">Versionado semántico</h3>
+    <p class="text-gray-700 mb-4">Ayuda a mantener versiones de software organizadas y comprensibles para todos los usuarios.</p>
+    <ul class="text-blue-600">
+        <li><a href="https://semver.org/lang/es/" target="_blank">Guía de versionado semántico</a></li>
+        <li><a href="https://www.atlassian.com/git/tutorials/using-branches" target="_blank">Introducción al versionado semántico por Atlassian</a></li>
+        <li><a href="https://www.udacity.com/course/version-control-with-git--ud123" target="_blank">Curso de Git y versionado semántico</a></li>
+    </ul>
+</div>
+
+<!-- Concepto 13: Fundamentos de seguridad web -->
+<div class="bg-white rounded-lg shadow-md p-6">
+    <h3 class="text-lg font-bold mb-4">Fundamentos de seguridad web</h3>
+    <p class="text-gray-700 mb-4">Esencial para proteger aplicaciones y datos de usuarios contra ataques y vulnerabilidades comunes.</p>
+    <ul class="text-blue-600">
+        <li><a href="https://ed.team/cursos/seguridad-web" target="_blank">Curso de seguridad web básica de EDteam</a></li>
+        <li><a href="https://owasp.org/www-project-top-ten/" target="_blank">Guía de seguridad en aplicaciones web de OWASP</a></li>
+        <li><a href="https://developer.mozilla.org/es/docs/Web/Security" target="_blank">Tutorial de seguridad web por MDN</a></li>
+    </ul>
+</div>
+
+<!-- Concepto 14: Pruebas básicas de software -->
+<div class="bg-white rounded-lg shadow-md p-6">
+    <h3 class="text-lg font-bold mb-4">Pruebas básicas de software</h3>
+    <p class="text-gray-700 mb-4">Garantiza la calidad y el correcto funcionamiento de las aplicaciones antes de su lanzamiento.</p>
+    <ul class="text-blue-600">
+        <li><a href="https://platzi.com/cursos/testing/" target="_blank">Curso de pruebas de software de Platzi</a></li>
+        <li><a href="https://www.freecodecamp.org/news/an-introduction-to-testing-in-javascript/" target="_blank">Introducción a las pruebas unitarias</a></li>
+        <li><a href="https://docs.pytest.org/en/stable/getting-started.html" target="_blank">Tutorial de pruebas con PyTest</a></li>
+    </ul>
+</div>
+
+<!-- Concepto 15: Integración continua/Despliegue continuo (CI/CD) -->
+<div class="bg-white rounded-lg shadow-md p-6">
+    <h3 class="text-lg font-bold mb-4">Integración continua/Despliegue continuo (CI/CD)</h3>
+    <p class="text-gray-700 mb-4">Automatiza el proceso de pruebas y despliegue, mejorando la eficiencia y calidad de los proyectos de software.</p>
+    <ul class="text-blue-600">
+        <li><a href="https://platzi.com/cursos/github-actions/" target="_blank">Curso de CI/CD con GitHub Actions de Platzi</a></li>
+        <li><a href="https://www.jenkins.io/doc/book/" target="_blank">Tutorial de Jenkins para principiantes</a></li>
+        <li><a href="https://docs.gitlab.com/ee/ci/" target="_blank">Introducción a GitLab CI/CD</a></li>
+    </ul>
+</div>
+
+<!-- Concepto 18: Conceptos básicos de IA y machine learning -->
+<div class="bg-white rounded-lg shadow-md p-6">
+    <h3 class="text-lg font-bold mb-4">Conceptos básicos de IA y machine learning</h3>
+    <p class="text-gray-700 mb-4">Permite implementar soluciones inteligentes y basadas en datos en una variedad de aplicaciones.</p>
+    <ul class="text-blue-600">
+        <li><a href="https://www.coursera.org/learn/ai-for-everyone" target="_blank">Curso de IA para todos de Coursera</a></li>
+        <li><a href="https://www.kaggle.com/learn/intro-to-machine-learning" target="_blank">Introducción al Machine Learning de Kaggle</a></li>
+        <li><a href="https://developers.google.com/machine-learning/crash-course" target="_blank">Guía de machine learning de Google</a></li>
+    </ul>
+</div>
+
+<!-- Concepto 19: Utilización de plataformas de IA como GPT -->
+<div class="bg-white rounded-lg shadow-md p-6">
+    <h3 class="text-lg font-bold mb-4">Utilización de plataformas de IA como GPT</h3>
+    <p class="text-gray-700 mb-4">Facilita la creación de aplicaciones con capacidades avanzadas de comprensión y generación de lenguaje natural.</p>
+    <ul class="text-blue-600">
+        <li><a href="https://www.openai.com/api/" target="_blank">Tutorial de OpenAI y GPT</a></li>
+        <li><a href="https://platzi.com/cursos/python-ia/" target="_blank">Curso de introducción a la IA con Python de Platzi</a></li>
+        <li><a href="https://huggingface.co/transformers/quickstart.html" target="_blank">Guía para comenzar con modelos de lenguaje</a></li>
+    </ul>
+</div>
+
+<!-- Concepto 20: Documentación y lectura de código -->
+<div class="bg-white rounded-lg shadow-md p-6">
+    <h3 class="text-lg font-bold mb-4">Documentación y lectura de código</h3>
+    <p class="text-gray-700 mb-4">Fundamental para entender proyectos existentes, colaborar con otros, y aprender de ejemplos de código real.</p>
+    <ul class="text-blue-600">
+        <li><a href="https://medium.com/@fagnerbrack/how-to-read-code-bf478c262932" target="_blank">Cómo leer código de otros</a></li>
+        <li><a href="https://www.writethedocs.org/guide/writing/beginners-guide-to-docs/" target="_blank">Guía de cómo escribir una buena documentación</a></li>
+        <li><a href="https://platzi.com/cursos/documentacion-tecnica/" target="_blank">Curso de documentación técnica de Platzi</a></li>
+    </ul>
+</div>
+    </div>
+
+    <a href="#" class="back-to-top" aria-label="Volver arriba">↑</a>
+
+    <amp-animation layout="nodisplay">
+        <script type="application/json">
+            {
+                "selector": ".back-to-top",
+                "duration": "200ms",
+                "easing": "ease-out",
+                "animations": [{
+                    "opacity": "0",
+                    "visibility": "hidden"
+                }]
+            }
+        </script>
+    </amp-animation>
+
+    <!-- Slider de imágenes -->
+    <div class="hero">
+        <div class="slide">
+            <img src="https://source.unsplash.com/random/?chatgpt" alt="Imagen 1">
+        </div>
+        <div class="slide">
+            <img src="https://source.unsplash.com/random/?chatgpt" alt="Imagen 2">
+        </div>
+        <div class="slide">
+            <img src="https://source.unsplash.com/random/?chatgpt" alt="Imagen 3">
+        </div>
+        <div class="slide">
+            <img src="https://source.unsplash.com/random/?chatgpt" alt="Imagen 4">
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Megacurso IA - Sami Halawa. Todos los derechos reservados.</p>
+    </footer>
+   <!-- Script para el slider -->
+    <script>
+        const slider = document.querySelector('.slider');
+        let isDragging = false;
+        let startPosition = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+        let animationID = 0;
+        let currentIndex = 0;
+
+        slider.addEventListener('mousedown', dragStart);
+        slider.addEventListener('touchstart', dragStart);
+        slider.addEventListener('mouseup', dragEnd);
+        slider.addEventListener('touchend', dragEnd);
+        slider.addEventListener('mousemove', drag);
+        slider.addEventListener('touchmove', drag);
+
+        function dragStart(event) {
+            if (event.type === 'touchstart') {
+                startPosition = event.touches[0].clientX;
+            } else {
+                startPosition = event.clientX;
+            }
+            isDragging = true;
+            animationID = requestAnimationFrame(animation);
+            slider.classList.add('grabbing');
+        }
+
+        function drag(event) {
+            if (isDragging) {
+                const currentPosition = event.type === 'touchmove' ? event.touches[0].clientX : event.clientX;
+                currentTranslate = prevTranslate + currentPosition - startPosition;
+            }
+        }
+
+        function dragEnd() {
+            isDragging = false;
+            cancelAnimationFrame(animationID);
+            const movedBy = currentTranslate - prevTranslate;
+            if (movedBy < -100 && currentIndex < 3) {
+                currentIndex += 1;
+            }
+            if (movedBy > 100 && currentIndex > 0) {
+                currentIndex -= 1;
+            }
+            setPositionByIndex();
+            slider.classList.remove('grabbing');
+        }
+
+        function animation() {
+            setSliderPosition();
+            if (isDragging) {
+                requestAnimationFrame(animation);
+            }
+        }
+
+        function setPositionByIndex() {
+            currentTranslate = currentIndex * -window.innerWidth;
+            prevTranslate = currentTranslate;
+            setSliderPosition();
+        }
+
+        function setSliderPosition() {
+            slider.style.transform = `translateX(${currentTranslate}px)`;
+        }
+    </script>
+
+</body>
+
+</body>
+
+</html>
