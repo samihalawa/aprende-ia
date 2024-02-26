@@ -1,67 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ⚡="" lang="en" amp-version="2402080818000" class="i-amphtml-singledoc i-amphtml-standalone" style="">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrar Comandos</title>
-    <!-- Tailwind CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <!-- Sortable.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
-    <style>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <title>Megacurso IA - Sami Halawa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <style amp-custom="">
         /* Estilos personalizados */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-        }
         nav ul {
             display: flex;
             list-style-type: none;
             padding: 0;
         }
+
         nav ul li {
             margin-right: 1rem;
         }
+
         nav ul li a {
             color: white;
             text-decoration: none;
             transition: all 0.3s ease;
         }
+
         nav ul li a:hover {
             opacity: 0.8;
         }
+
+        /* Estilos para el slider */
+        .hero {
+            position: relative;
+        }
+
+        .slide {
+            width: 100%;
+            height: 300px;
+            position: relative;
+        }
+
+        .slide img {
+            object-fit: cover;
+            filter: blur(5px);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Estilos para el botón de volver arriba */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            text-align: center;
+            text-decoration: none;
+            font-size: 20px;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+
+        .back-to-top:hover {
+            opacity: 0.8;
+        }
+
         /* Estilos para la tabla de comandos */
         .command-table {
             width: 100%;
             border-collapse: collapse;
         }
+
         .command-table th,
         .command-table td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
         }
+
         .command-table th {
             background-color: #f2f2f2;
         }
+
         /* Estilos para el hover de los comandos */
         .command-table td:hover {
             background-color: #f8f8f8;
             cursor: pointer;
         }
+
         /* Estilos para el icono de copiar */
         .copy-icon {
             display: none;
             transition: opacity 0.3s ease;
             cursor: pointer;
         }
+
         .command-table td:hover .copy-icon {
             display: inline-block;
         }
+
         .copy-icon:hover {
             opacity: 0.8;
         }
+
         /* Estilos para el mensaje de copiado */
         .copied-message {
             position: absolute;
@@ -73,103 +118,54 @@
             transition: opacity 0.3s ease;
             display: none;
         }
+
         .command-table td:hover .copied-message {
             display: block;
         }
     </style>
 </head>
-<body>
+
+<body class="bg-gray-100 amp-dark-mode amp-mode-mouse" style="opacity: 1; visibility: visible; animation: auto ease 0s 1 normal none running none;">
     <header class="bg-blue-600 text-white p-4">
         <div class="container mx-auto flex justify-between items-center">
-            <span class="font-bold text-lg">Administrar Comandos</span>
+            <span class="font-bold text-lg">Megacurso IA - Sami Halawa</span>
+            <!-- Botón del menú -->
+            <div class="menu-btn" on="tap:sidebar.toggle">
+                <span>☰</span>
+            </div>
         </div>
     </header>
 
-    <main class="container mx-auto">
-        <!-- Sección de la tabla de comandos -->
-        <section id="comandos" class="container mx-auto py-12">
-            <h2 class="text-2xl font-bold mb-4">Comandos Básicos</h2>
-            <div class="overflow-x-auto">
-                <table id="commandTable" class="command-table">
-                    <thead>
-                        <tr>
-                            <th class="px-4 py-2 bg-gray-200">Comando</th>
-                            <th class="px-4 py-2 bg-gray-200">Descripción</th>
-                            <th class="px-4 py-2 bg-gray-200">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-        </section>
-    </main>
+    <!-- Barra lateral del menú -->
+    <amp-sidebar id="sidebar" layout="nodisplay" side="left" class="sidebar i-amphtml-element i-amphtml-layout-nodisplay i-amphtml-overlay i-amphtml-scrollable i-amphtml-built i-amphtml-layout" i-amphtml-layout="nodisplay" role="menu" tabindex="-1" hidden=""><button class="i-amphtml-screen-reader" tabindex="-1">Close the sidebar</button>
+        <ul>
+            
+            <li><a href="#concepto-1">Comandos Básicos de Bash</a></li>
+        </ul>
+    <button class="i-amphtml-screen-reader" tabindex="-1">Close the sidebar</button></amp-sidebar>
 
-    <!-- Script para copiar al portapapeles -->
-    <script>
-        const commandTable = document.getElementById('commandTable');
-        let commands = [];
+    <!-- Contenido principal -->
+    <section class="hero bg-gradient-to-r from-blue-400 to-purple-600">
+    <div class="container mx-auto py-12 text-center">
+        <h1 class="text-4xl font-bold text-white mb-4">Comandos de Bash</h1>
+        <p class="text-lg text-white">Aprende los conceptos fundamentales para convertirte en un experto en inteligencia artificial.</p>
+        
+        <!-- Elementos animados de AMP -->
+        
 
-        // Función para renderizar los comandos en la tabla 
-        function renderCommands() {
-            const tableBody = commandTable.querySelector('tbody');
-            tableBody.innerHTML = '';
-
-            commands.forEach((command, index) => {
-                const row = `<tr data-index="${index}">
-                                <td class="px-4 py-3">${command.name}</td>
-                                <td class="px-4 py-3">${command.description}</td>
-                                <td class="px-4 py-3">
-                                    <button class="bg-yellow-500 text-white py-1 px-2 rounded mr-2 edit-btn" onclick="editCommand(${index})">Editar</button>
-                                    <button class="bg-red-500 text-white py-1 px-2 rounded delete-btn" onclick="deleteCommand(${index})">Eliminar</button>
-                                </td>
-                            </tr>`;
-                tableBody.insertAdjacentHTML('beforeend', row);
-            });
-
-            // Activar sortable.js para cambiar el orden de las filas
-            new Sortable(commandTable.querySelector('tbody'), {
-                animation: 150,
-                handle: 'td',
-                onUpdate: function (evt) {
-                    // Reordenar el array de comandos
-                    const oldIndex = evt.oldIndex;
-                    const newIndex = evt.newIndex;
-                    const movedCommand = commands.splice(oldIndex, 1)[0];
-                    commands.splice(newIndex, 0, movedCommand);
-                    renderCommands();
-                }
-            });
-        }
-
-        // Función para añadir un nuevo comando
-        function addCommand() {
-            const name = prompt('Ingrese el nombre del comando:');
-            const description = prompt('Ingrese la descripción del comando:');
-            if (name && description) {
-                commands.push({ name, description });
-                renderCommands();
-            }
-        }
-
-        // Función para editar un comando
-        function editCommand(index) {
-            const newName = prompt('Ingrese el nuevo nombre del comando:');
-            const newDescription = prompt('Ingrese la nueva descripción del comando:');
-            if (newName !== null && newDescription !== null) {
-                commands[index].name = newName;
-                commands[index].description = newDescription;
-                renderCommands();
-            }
-        }
-
-        // Función para eliminar un comando
-        function deleteCommand(index) {
-            commands.splice(index, 1);
-            renderCommands();
-        }
-
-        // Renderizar los comandos al cargar la página
-        renderCommands();
-    </script>
-</body>
-</html>
+    </div>
+</section><main class="container mx-auto">
+    <!-- Sección de la tabla de comandos -->
+    <section id="comandos" class="container mx-auto py-12">
+    <h2 class="text-2xl font-bold mb-4">Comandos Básicos de Bash</h2>
+    <div class="overflow-x-auto">
+        <table class="command-table">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 bg-gray-200">Comando</th>
+                    <th class="px-4 py-2 bg-gray-200">Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                
