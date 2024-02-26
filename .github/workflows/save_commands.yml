@@ -14,13 +14,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      
+
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '20'  # Actualizado a Node.js 20
 
-      - name: Install dependencies
+      - name: Install json globally
         run: npm install -g json
 
       - name: Add new commands to comandos.json
@@ -34,7 +34,7 @@ jobs:
           git config --global user.name "GitHub Actions"
           git add comandos.json
           git commit -m "Added new commands"
-      
+
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
