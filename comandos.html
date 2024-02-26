@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <title>Megacurso IA - Sami Halawa</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <style amp-custom="">
         /* Estilos personalizados */
@@ -157,14 +159,14 @@
         <section id="comandos" class="container mx-auto py-12">
             <h2 class="text-2xl font-bold mb-4">Comandos Básicos de Bash</h2>
             <div class="overflow-x-auto">
-                <table id="commandTable" class="command-table">
+                <table class="command-table">
                     <thead>
                         <tr>
                             <th class="px-4 py-2 bg-gray-200">Comando</th>
                             <th class="px-4 py-2 bg-gray-200">Descripción</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="commandTable">
                     </tbody>
                 </table>
             </div>
@@ -192,15 +194,30 @@
         }
 
         // Función para añadir un nuevo comando
-        function addCommand() {
-            const name = prompt('Ingrese el nombre del comando:');
-            const description = prompt('Ingrese la descripción del comando:');
-            if (name && description) {
-                commands.push({ name, description });
-                renderCommands();
-                updateCommandsFile(commands); // Guardar los comandos en el archivo JSON
+      // Función para añadir un nuevo comando
+function addCommand() {
+    Swal.fire({
+        title: 'Agregar Nuevo Comando',
+        html:
+            '<input id="swal-input-name" class="swal2-input" placeholder="Nombre del comando">' +
+            '<input id="swal-input-description" class="swal2-input" placeholder="Descripción del comando">',
+        focusConfirm: false,
+        preConfirm: () => {
+            const name = Swal.getPopup().querySelector('#swal-input-name').value;
+            const description = Swal.getPopup().querySelector('#swal-input-description').value;
+            if (!name || !description) {
+                Swal.showValidationMessage('Por favor, ingrese un nombre y una descripción para el comando');
             }
+            return { name, description };
         }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            commands.push(result.value);
+            renderCommands();
+            updateCommandsFile(commands); // Guardar los comandos en el archivo JSON
+        }
+    });
+}
 
         // Actualizar el archivo JSON con los comandos
         function updateCommandsFile(commands) {
