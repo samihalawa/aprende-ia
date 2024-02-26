@@ -177,8 +177,20 @@
 
     <!-- Script JavaScript -->
     <script>
-        // Array para almacenar los comandos
-        let commands = [];
+    // Array para almacenar los comandos
+let commands = [];
+
+// Función para cargar los comandos desde el archivo JSON
+async function loadCommands() {
+    try {
+        const response = await fetch('comandos.json');
+        const data = await response.json();
+        commands = data;
+        renderCommands();
+    } catch (error) {
+        console.error('Error al cargar los comandos:', error);
+    }
+}
 
         // Función para renderizar los comandos en la tabla 
         function renderCommands() {
