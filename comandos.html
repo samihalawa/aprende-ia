@@ -182,7 +182,7 @@
 
         // Función para renderizar los comandos en la tabla 
         function renderCommands() {
-            const tableBody = document.querySelector('#commandTable tbody');
+            const tableBody = document.getElementById('commandTable');
             tableBody.innerHTML = '';
 
             commands.forEach((command, index) => {
