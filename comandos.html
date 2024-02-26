@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html ⚡="" lang="en" amp-version="2402080818000" class="i-amphtml-singledoc i-amphtml-standalone" style="">
+<html ⚡="" lang="en" amp-version="2402080818000" class="i-amphtml-singledoc i-amphtml-standalone">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <title>Megacurso IA - Sami Halawa</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <style amp-custom="">
         /* Estilos personalizados */
@@ -127,7 +126,7 @@
     </style>
 </head>
 
-<body class="bg-gray-100 amp-dark-mode amp-mode-mouse" style="opacity: 1; visibility: visible; animation: auto ease 0s 1 normal none running none;">
+<body class="bg-gray-100 amp-dark-mode amp-mode-mouse">
     <header class="bg-blue-600 text-white p-4">
         <div class="container mx-auto flex justify-between items-center">
             <span class="font-bold text-lg">Megacurso IA - Sami Halawa</span>
@@ -139,7 +138,8 @@
     </header>
 
     <!-- Barra lateral del menú -->
-    <amp-sidebar id="sidebar" layout="nodisplay" side="left" class="sidebar i-amphtml-element i-amphtml-layout-nodisplay i-amphtml-overlay i-amphtml-scrollable i-amphtml-built i-amphtml-layout" i-amphtml-layout="nodisplay" role="menu" tabindex="-1" hidden=""><button class="i-amphtml-screen-reader" tabindex="-1">Close the sidebar</button>
+    <amp-sidebar id="sidebar" layout="nodisplay" side="left" class="sidebar" role="menu" tabindex="-1" hidden="">
+        <button class="i-amphtml-screen-reader" tabindex="-1">Close the sidebar</button>
         <ul>
             <li><a href="#concepto-1">Comandos Básicos de Bash</a></li>
         </ul>
@@ -186,7 +186,7 @@
 
             commands.forEach((command, index) => {
                 const row = `<tr data-index="${index}">
-                                <td class="px-4 py-2" on="tap:clipboard.copyTextToClipboard('${command.name}')">${command.name}<span class="copy-icon">📋</span></td>
+                                <td class="px-4 py-2">${command.name}<span class="copy-icon">📋</span></td>
                                 <td class="px-4 py-2">${command.description}</td>
                             </tr>`;
                 tableBody.insertAdjacentHTML('beforeend', row);
@@ -194,43 +194,28 @@
         }
 
         // Función para añadir un nuevo comando
-      // Función para añadir un nuevo comando
-function addCommand() {
-    Swal.fire({
-        title: 'Agregar Nuevo Comando',
-        html:
-            '<input id="swal-input-name" class="swal2-input" placeholder="Nombre del comando">' +
-            '<input id="swal-input-description" class="swal2-input" placeholder="Descripción del comando">',
-        focusConfirm: false,
-        preConfirm: () => {
-            const name = Swal.getPopup().querySelector('#swal-input-name').value;
-            const description = Swal.getPopup().querySelector('#swal-input-description').value;
-            if (!name || !description) {
-                Swal.showValidationMessage('Por favor, ingrese un nombre y una descripción para el comando');
-            }
-            return { name, description };
-        }
-    }).then((result) => {
-        if (result.isConfirmed) {
-            commands.push(result.value);
-            renderCommands();
-            updateCommandsFile(commands); // Guardar los comandos en el archivo JSON
-        }
-    });
-}
-
-        // Actualizar el archivo JSON con los comandos
-        function updateCommandsFile(commands) {
-            const content = JSON.stringify(commands, null, 2);
-            const blob = new Blob([content], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'comandos.json';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
+        function addCommand() {
+            Swal.fire({
+                title: 'Agregar Nuevo Comando',
+                html:
+                    '<input id="swal-input-name" class="swal2-input" placeholder="Nombre del comando">' +
+                    '<input id="swal-input-description" class="swal2-input" placeholder="Descripción del comando">',
+                focusConfirm: false,
+                preConfirm: () => {
+                    const name = Swal.getPopup().querySelector('#swal-input-name').value;
+                    const description = Swal.getPopup().querySelector('#swal-input-description').value;
+                    if (!name || !description) {
+                        Swal.showValidationMessage('Por favor, ingrese un nombre y una descripción para el comando');
+                    }
+                    return { name, description };
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    commands.push(result.value);
+                    renderCommands();
+                    // No hay necesidad de llamar a updateCommandsFile aquí
+                }
+            });
         }
 
         // Evento click para añadir un comando
