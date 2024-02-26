@@ -3,15 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
- 
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrar Comandos</title>
     <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <!-- Sortable.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
- 
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <style amp-custom="">
         /* Estilos personalizados */
@@ -131,7 +127,6 @@
         }
     </style>
 </head>
-
 <body class="bg-gray-100 amp-dark-mode amp-mode-mouse" style="opacity: 1; visibility: visible; animation: auto ease 0s 1 normal none running none;">
     <header class="bg-blue-600 text-white p-4">
         <div class="container mx-auto flex justify-between items-center">
@@ -144,235 +139,144 @@
     </header>
 
     <!-- Barra lateral del menú -->
-    <amp-sidebar id="sidebar" layout="nodisplay" side="left" class="sidebar i-amphtml-element i-amphtml-layout-nodisplay i-amphtml-overlay i-amphtml-scrollable i-amphtml-built i-amphtml-layout" i-amphtml-layout="nodisplay" role="menu" tabindex="-1" hidden=""><button class="i-amphtml-screen-reader" tabindex="-1">Close the sidebar</button>
+    <amp-sidebar id="sidebar" layout="nodisplay" side="left" class="sidebar i-amphtml-element i-amphtml-layout-nodisplay i-amphtml-overlay i-amphtml-scrollable i-amphtml-built i-amphtml-layout" i-amphtml-layout="nodisplay" role="menu" tabindex="-1" hidden="">
+        <button class="i-amphtml-screen-reader" tabindex="-1">Close the sidebar</button>
         <ul>
-            
             <li><a href="#concepto-1">Comandos Básicos de Bash</a></li>
         </ul>
-    <button class="i-amphtml-screen-reader" tabindex="-1">Close the sidebar</button></amp-sidebar>
+        <button class="i-amphtml-screen-reader" tabindex="-1">Close the sidebar</button>
+    </amp-sidebar>
 
     <!-- Contenido principal -->
     <section class="hero bg-gradient-to-r from-blue-400 to-purple-600">
-    <div class="container mx-auto py-12 text-center">
-        <h1 class="text-4xl font-bold text-white mb-4">Comandos de Bash</h1>
-        <p class="text-lg text-white">Aprende los conceptos fundamentales para convertirte en un experto en inteligencia artificial.</p>
-        
-        <!-- Elementos animados de AMP -->
-        
+        <div class="container mx-auto py-12 text-center">
+            <h1 class="text-4xl font-bold text-white mb-4">Comandos de Bash</h1>
+            <p class="text-lg text-white">Aprende los conceptos fundamentales para convertirte en un experto en inteligencia artificial.</p>
+        </div>
+    </section>
+    <main class="container mx-auto">
+        <!-- Sección de la tabla de comandos -->
+        <section id="comandos" class="container mx-auto py-12">
+            <h2 class="text-2xl font-bold mb-4">Comandos Básicos de Bash</h2>
+            <div class="overflow-x-auto">
+                <table id="commandTable" class="command-table">
+                    <thead>
+                        <tr>
+                            <th class="px-4 py-2 bg-gray-200">Comando</th>
+                            <th class="px-4 py-2 bg-gray-200">Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-gray-200 hover:bg-gray-300" on="tap:clipboard.copyTextToClipboard(cat)">
+                            <td class="px-4 py-3">cat<span class="copy-icon">📋</span></td>
+                            <td class="px-4 py-3">Muestra el contenido del archivo (cat nombrearcivo) y aparece en la consola</td>
+                        </tr>
+                        <!-- Aquí se agregan dinámicamente los comandos -->
+                    </tbody>
+                </table>
+            </div>
+            <!-- Botón para agregar un nuevo comando -->
+            <button id="addCommandBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Agregar Comando</button>
+        </section>
 
-    </div>
-</section><main class="container mx-auto">
-    <!-- Sección de la tabla de comandos -->
-    <section id="comandos" class="container mx-auto py-12">
-    <h2 class="text-2xl font-bold mb-4">Comandos Básicos de Bash</h2>
-    <div class="overflow-x-auto">
-        <table class="command-table">
-            <thead>
-                <tr>
-                    <th class="px-4 py-2 bg-gray-200">Comando</th>
-                    <th class="px-4 py-2 bg-gray-200">Descripción</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-                
-                
-                
-                
-                <tr class="bg-gray-200 hover:bg-gray-300">
-    <td class="px-4 py-3" on="tap:clipboard.copyTextToClipboard(cat)">
-        cat<span class="copy-icon">📋</span>
-    </td>
-    <td class="px-4 py-3">Muestra el contenido del archivo (cat nombrearcivo) y aparece en la consola</td>
-</tr>
-<tr class="bg-gray-100 hover:bg-gray-200">
-    <td class="px-4 py-3" on="tap:clipboard.copyTextToClipboard(git status)">
-        git status<span class="copy-icon">📋</span>
-    </td>
-    <td class="px-4 py-3">Muestra el estado de los archivos des ese repositorio (en verde: actualizados, en rojo: pendiente)</td>
-</tr>
-<tr class="bg-gray-200 hover:bg-gray-300">
-    <td class="px-4 py-3" on="tap:clipboard.copyTextToClipboard(git status -s)">
-        git status -s<span class="copy-icon">📋</span>
-    </td>
-    <td class="px-4 py-3">Ofrece los datos de Status de forma más reducida</td>
-</tr>
-<tr class="bg-gray-100 hover:bg-gray-200">
-    <td class="px-4 py-3" on="tap:clipboard.copyTextToClipboard(git log)">
-        git log<span class="copy-icon">📋</span>
-    </td>
-    <td class="px-4 py-3">Te muestra el registro de commits con sus comentarios y un identificador único para cada uno</td>
-</tr>
-<tr class="bg-gray-200 hover:bg-gray-300">
-    <td class="px-4 py-3" on="tap:clipboard.copyTextToClipboard(git log --oneline)">
-        git log --oneline<span class="copy-icon">📋</span>
-    </td>
-    <td class="px-4 py-3">Lo mismo que el de arriba pero de forma más esquematizada y limpia</td>
-</tr>
-<tr class="bg-gray-100 hover:bg-gray-200">
-    <td class="px-4 py-3" on="tap:clipboard.copyTextToClipboard(git init)">
-        git init<span class="copy-icon">📋</span>
-    </td>
-    <td class="px-4 py-3">Inicia el proyecto dentro de la carpeta donde lo ejecutas</td>
-</tr>
-<tr class="bg-gray-200 hover:bg-gray-300">
-    <td class="px-4 py-3" on="tap:clipboard.copyTextToClipboard(git add)">
-        git add<span class="copy-icon">📋</span>
-    </td>
-    <td class="px-4 py-3">Añade un archivo seleccionado al repositorio</td>
-</tr>
-<tr class="bg-gray-100 hover:bg-gray-200">
-    <td class="px-4 py-3" on="tap:clipboard.copyTextToClipboard(git add .)">
-        git add .<span class="copy-icon">📋</span>
-    </td>
-    <td class="px-4 py-3">Añade todos los archivos de esa carpeta al repositorio</td>
-</tr>
-<tr class="bg-gray-200 hover:bg-gray-300">
-    <td class="px-4 py-3" on="tap:clipboard.copyTextToClipboard(git branch)">
-        git branch<span class="copy-icon">📋</span>
-    </td>
-    <td class="px-4 py-3">Nos muestra la rama en la que estamos trabajando</td>
-</tr>
-<tr class="bg-gray-100 hover:bg-gray-200">
-    <td class="px-4 py-3" on="tap:clipboard.copyTextToClipboard(git checkout -b)">
-        git checkout -b<span class="copy-icon">📋</span>
-    </td>
-    <td class="px-4 py-3">Crea una rama nueva (git checkout -b nuevarama) Creará una rama llamada: nuevarama y te llevará a ella automáticamente al presionar intro</td>
-</tr>
-<tr class="bg-gray-200 hover:bg-gray-300">
-    <td class="px-4 py-3" on="tap:clipboard.copyTextToClipboard(git checkout)">
-        git checkout<span class="copy-icon">📋</span>
-    </td>
-    <td class="px-4 py-3">Seguido del nombre de la rama a la que quieras acceder te llevará a ella sin crear una nueva</td>
-</tr>
-<tr class="bg-gray-100 hover:bg-gray-200">
-    <td class="px-4 py-3" on="tap:clipboard.copyTextToClipboard(git merge)">
-        git merge<span class="copy-icon">📋</span>
-    </td>
-    <td class="px-4 py-3">Incluye los cambios de una subrama a la rama principal (Debes estar dentro de la rama principal para que surja efecto)</td>
-</tr>
-<tr class="bg-gray-200 hover:bg-gray-300">
-    <td class="px-4 py-3" on="tap:clipboard.copyTextToClipboard(git push)">
-        git push<span class="copy-icon">📋</span>
-    </td>
-    <td class="px-4 py-3">Sube los archivos que has modificado a la nube para que todos los colaboradores tengan acceso a ellos</td>
-</tr>
-<tr class="bg-gray-100 hover:bg-gray-200">
-    <td class="px-4 py-3" on="tap:clipboard.copyTextToClipboard(git push -u)">
-        git push -u<span class="copy-icon">📋</span>
-    </td>
-    <td class="px-4 py-3">Igual que el de arriba pero además guarda la dirección de donde quieres que se suban esos archivos en la nube, para que no la tengas que introducir cada vez</td>
-</tr>
-<tr class="bg-gray-200 hover:bg-gray-300">
-    <td class="px-4 py-3" on="tap:clipboard.copyTextToClipboard(git pull)">
-        git pull<span class="copy-icon">📋</span>
-    </td>
-    <td class="px-4 py-3">Trae los archivos que ha subido un compañero a la nube para tener la versión actualizada</td>
-</tr>
-
-            </tbody>
-        </table>
-    </div>
-</section>
-
-    <!-- Botón de volver arriba -->
-    <a href="#" class="back-to-top">↑</a>
-</main>
+        <!-- Botón de volver arriba -->
+        <a href="#" class="back-to-top">↑</a>
+    </main>
     <!-- Script para copiar al portapapeles -->
     <amp-script layout="container" script="copy-script" class="i-amphtml-element i-amphtml-layout-container i-amphtml-layout-size-defined i-amphtml-element-custom">
-    <script type="text/plain" target="amp-script" class="i-amphtml-element i-amphtml-layout-size-defined i-amphtml-layout" id="amp-script-copy-script" style="display: none;"></script>
-    <div class="i-amphtml-layout-container" style="position: relative; contain: layout; overflow: hidden; -webkit-appearance: none !important;" tabindex="-1"><script type="module" src="https://cdn.ampproject.org/v0/amp-script-0.1.js" crossorigin="anonymous"></script><script type="module" src="https://megacurso-ia.samihalawa.com/copy-script.js" crossorigin="anonymous"></script></div></amp-script>
+        <script type="text/plain" target="amp-script" class="i-amphtml-element i-amphtml-layout-size-defined i-amphtml-layout" id="amp-script-copy-script" style="display: none;"></script>
+        <div class="i-amphtml-layout-container" style="position: relative; contain: layout; overflow: hidden; -webkit-appearance: none !important;" tabindex="-1">
+            <script type="module" src="https://cdn.ampproject.org/v0/amp-script-0.1.js" crossorigin="anonymous"></script>
+            <script type="module" src="https://megacurso-ia.samihalawa.com/copy-script.js" crossorigin="anonymous"></script>
+        </div>
+    </amp-script>
 
+    <!-- Script JavaScript -->
+    <script>
+        // Array para almacenar los comandos
+        let commands = [
+            { name: "cat", description: "Muestra el contenido del archivo (cat nombrearcivo) y aparece en la consola" },
+            { name: "git status", description: "Muestra el estado de los archivos des ese repositorio (en verde: actualizados, en rojo: pendiente)" },
+            { name: "git status -s", description: "Ofrece los datos de Status de forma más reducida" },
+            { name: "git log", description: "Te muestra el registro de commits con sus comentarios y un identificador único para cada uno" },
+            { name: "git log --oneline", description: "Lo mismo que el de arriba pero de forma más esquematizada y limpia" },
+            { name: "git init", description: "Inicia el proyecto dentro de la carpeta donde lo ejecutas" },
+            { name: "git add", description: "Añade un archivo seleccionado al repositorio" },
+            { name: "git add .", description: "Añade todos los archivos de esa carpeta al repositorio" },
+            { name: "git branch", description: "Nos muestra la rama en la que estamos trabajando" },
+            { name: "git checkout -b", description: "Crea una rama nueva (git checkout -b nuevarama) Creará una rama llamada: nuevarama y te llevará a ella automáticamente al presionar intro" },
+            { name: "git checkout", description: "Seguido del nombre de la rama a la que quieras acceder te llevará a ella sin crear una nueva" },
+            { name: "git merge", description: "Incluye los cambios de una subrama a la rama principal (Debes estar dentro de la rama principal para que surja efecto)" },
+            { name: "git push", description: "Sube los archivos que has modificado a la nube para que todos los colaboradores tengan acceso a ellos" },
+            { name: "git push -u", description: "Igual que el de arriba pero además guarda la dirección de donde quieres que se suban esos archivos en la nube, para que no la tengas que introducir cada vez" },
+            { name: "git pull", description: "Trae los archivos que ha subido un compañero a la nube para tener la versión actualizada" }
+        ];
 
-<scrip>
+        // Función para renderizar los comandos en la tabla 
+        function renderCommands() {
+            const tableBody = document.querySelector('#commandTable tbody');
+            tableBody.innerHTML = '';
 
-    // Array para almacenar los comandos
-let commands = [];
+            commands.forEach((command, index) => {
+                const row = `<tr data-index="${index}">
+                                <td class="px-4 py-2" on="tap:clipboard.copyTextToClipboard('${command.name}')">${command.name}<span class="copy-icon">📋</span></td>
+                                <td class="px-4 py-2">${command.description}</td>
+                            </tr>`;
+                tableBody.insertAdjacentHTML('beforeend', row);
+            });
 
-// Función para renderizar los comandos en la tabla 
-function renderCommands() {
-    const tableBody = document.querySelector('#commandTable tbody');
-    tableBody.innerHTML = '';
-
-    commands.forEach((command, index) => {
-        const row = `<tr data-index="${index}">
-                        <td class="px-4 py-2">${command.name}</td>
-                        <td class="px-4 py-2">${command.description}</td>
-                        <td class="px-4 py-2">
-                            <button class="bg-yellow-500 text-white py-1 px-2 rounded mr-2 edit-btn">Editar</button>
-                            <button class="bg-red-500 text-white py-1 px-2 rounded delete-btn">Eliminar</button>
-                        </td>
-                    </tr>`;
-        tableBody.insertAdjacentHTML('beforeend', row);
-    });
-
-    // Activar sortable.js para cambiar el orden de las filas
-    const table = document.getElementById('commandTable');
-    new Sortable(table, {
-        animation: 150,
-        handle: 'td',
-        onUpdate: function (evt) {
-            // Reordenar el array de comandos
-            const oldIndex = evt.oldIndex;
-            const newIndex = evt.newIndex;
-            const movedCommand = commands.splice(oldIndex, 1)[0];
-            commands.splice(newIndex, 0, movedCommand);
+            // Activar sortable.js para cambiar el orden de las filas
+            const table = document.getElementById('commandTable');
+            new Sortable(table, {
+                animation: 150,
+                handle: 'td',
+                onUpdate: function (evt) {
+                    // Reordenar el array de comandos
+                    const oldIndex = evt.oldIndex;
+                    const newIndex = evt.newIndex;
+                    const movedCommand = commands.splice(oldIndex, 1)[0];
+                    commands.splice(newIndex, 0, movedCommand);
+                }
+            });
         }
-    });
-}
 
-// Función para añadir un nuevo comando
-function addCommand() {
-    const name = prompt('Ingrese el nombre del comando:');
-    const description = prompt('Ingrese la descripción del comando:');
-    if (name && description) {
-        commands.push({ name, description });
-        renderCommands();
-    }
-}
-
-// Función para eliminar un comando
-function deleteCommand(index) {
-    commands.splice(index, 1);
-    renderCommands();
-}
-
-// Evento click para añadir un comando
-document.getElementById('addCommandBtn').addEventListener('click', addCommand);
-
-// Delegación de eventos para los botones de editar y eliminar
-document.getElementById('commandTable').addEventListener('click', function (event) {
-    const target = event.target;
-    if (target.classList.contains('delete-btn')) {
-        const index = parseInt(target.closest('tr').dataset.index);
-        deleteCommand(index);
-    }
-});
-
-// Renderizar los comandos al cargar la página
-renderCommands();
-
-</scrip>
-    
-<!-- Scroll to top -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var backToTopButton = document.querySelector('.back-to-top');
-
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 300) {
-                backToTopButton.classList.add('block');
-            } else {
-                backToTopButton.classList.remove('block');
+        // Función para añadir un nuevo comando
+        function addCommand() {
+            const name = prompt('Ingrese el nombre del comando:');
+            const description = prompt('Ingrese la descripción del comando:');
+            if (name && description) {
+                commands.push({ name, description });
+                renderCommands();
             }
-        });
+        }
 
-        backToTopButton.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+        // Evento click para añadir un comando
+        document.getElementById('addCommandBtn').addEventListener('click', addCommand);
+
+        // Renderizar los comandos al cargar la página
+        renderCommands();
+    </script>
+
+    <!-- Scroll to top -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var backToTopButton = document.querySelector('.back-to-top');
+
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('block');
+                } else {
+                    backToTopButton.classList.remove('block');
+                }
+            });
+
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
             });
         });
-    });
-</script>
-</body></html>
+    </script>
+</body>
+</html>
