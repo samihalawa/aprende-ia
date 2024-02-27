@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Imágenes</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Image Editor JS -->
+    <script src="https://cdn.jsdelivr.net/npm/image-editor-js@latest"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        #imageGrid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .imageItem {
+            position: relative;
+            overflow: hidden;
+        }
+        .imageItem img {
+            width: 100%;
+            height: auto;
+        }
+        .imageOverlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .imageItem:hover .imageOverlay {
+            opacity: 1;
+        }
+        .imageOverlay button {
+            background-color: transparent;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 5px 10px;
+            margin: 0 5px;
+        }
+        #editorContainer {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="imageGrid"></div>
+    <div id="editorContainer">
+        <div id="editor"></div>
+        <button id="saveButton">Guardar</button>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const imageGrid = document.getElementById('imageGrid');
+        const editorContainer = document.getElementById('editorContainer');
+        const editor = new ImageEditor(document.getElementById('editor'));
+        const saveButton = document.getElementById('saveButton');
+        let currentImageIndex = null;
+
+        // Función para cargar las imágenes desde GitHub
+        async function loadImagesFromGitHub() {
+            const response = await fetch('https://api.github.com/repos/samihalawa/aprende-ia/contents/imagenes', {
+                headers: {
+                    'Authorization': 'token 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',
+                },
+            });
+            const data = await response.json();
+            data.forEach(file => {
+                if (file.type === 'file' && file.name.endsWith('.jpg')) {
+                    const imageURL = file.download_url;
+                    const imageItem = document.createElement('div');
+                    imageItem.classList.add('imageItem');
+                    const img = document.createElement('img');
+                    img.src = imageURL;
+                    img.alt = file.name;
+                    const overlay = document.createElement('div');
+                    overlay.classList.add('imageOverlay');
+                    overlay.innerHTML = `
+                        <button onclick="editImage(${data.indexOf(file)})">Editar</button>
+                        <button onclick="deleteImage('${file.name}')">Eliminar</button>
+                    `;
+                    imageItem.appendChild(img);
+                    imageItem.appendChild(overlay);
+                    imageGrid.appendChild(imageItem);
+                }
+            });
+        }
+
+        // Función para editar una imagen
+        function editImage(index) {
+            currentImageIndex = index;
+            editor.loadFromURL(document.querySelectorAll('.imageItem img')[index].src);
+            editorContainer.style.display = 'block';
+        }
+
+        // Función para guardar la imagen editada en GitHub
+        async function saveImageToGitHub() {
+            const image = editor.getImage();
+
+            // Obtener el nombre de la imagen actual
+            const currentImageName = document.querySelectorAll('.imageItem img')[currentImageIndex].alt;
+
+            // Crear un nuevo archivo en GitHub usando la API de GitHub
+            const response = await fetch(`https://api.github.com/repos/samihalawa/aprende-ia/contents/imagenes/${currentImageName}`, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': 'token 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',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    message: 'Editar imagen',
+                    content: image, // Contenido de la imagen codificado en base64
+                }),
+            });
+
+            // Mostrar mensaje de éxito o error
+            if (response.ok) {
+                alert('Imagen guardada correctamente en GitHub.');
+            } else {
+                const responseData = await response.json();
+                alert(`Error al guardar la imagen: ${responseData.message}`);
+            }
+        }
+
+        // Función para eliminar una imagen
+        async function deleteImage(imageName) {
+            const confirmDelete = confirm(`¿Estás seguro de que deseas eliminar ${imageName}?`);
+            if (confirmDelete) {
+                const response = await fetch(`https://api.github.com/repos/samihalawa/aprende-ia/contents/imagenes/${imageName}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': 'token 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',
+                    },
+                });
+                if (response.ok) {
+                    alert('Imagen eliminada correctamente.');
+                    location.reload(); // Recargar la página para reflejar los cambios
+                } else {
+                    const responseData = await response.json();
+                    alert(`Error al eliminar la imagen: ${responseData.message}`);
+                }
+            }
+        }
+
+        // Evento click para el botón de guardar
+        saveButton.addEventListener('click', saveImageToGitHub);
+
+        // Cargar las imágenes al cargar la página
+        loadImagesFromGitHub();
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+name: Update Commands
+
+on:
+  push:
+    paths:
+      - 'comandos.json'
+
+jobs:
+  update_commands:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Update commands file
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add comandos.json
+          git commit -m "Update commands file [skip ci]"
+          git push origin HEAD:main
