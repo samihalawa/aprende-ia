@@ -9,7 +9,7 @@
 <body class="font-sans bg-gray-50">
 
 <!-- Hero Section -->
-<section class="text-white bg-cover bg-hero-pattern h-screen flex items-center justify-center" style="background-image: url('tu-imagen-aquí.jpg');">
+<section class="text-white bg-cover bg-hero-pattern h-screen flex items-center justify-center" style="background-image: url('https://source.unsplash.com/featured/?transformation');">
     <div class="text-center p-4 bg-black bg-opacity-50 rounded">
         <h1 class="text-5xl font-bold mb-4">EVOLUCIÓN</h1>
         <p class="text-xl mb-8">La historia de una transformación inesperada.</p>
@@ -22,35 +22,52 @@
     <div class="container mx-auto px-6">
         <h2 class="text-3xl font-semibold text-center mb-8">Sinopsis</h2>
         <p class="max-w-3xl mx-auto text-center mb-8">Un resumen conmovedor de lo que los lectores pueden esperar del libro, detallando el viaje emocional y físico desde el accidente hasta la aceptación y transformación.</p>
+        <img src="https://source.unsplash.com/featured/?recovery" alt="Recovery" class="mx-auto rounded mb-8">
+        <p class="max-w-3xl mx-auto text-center">Explora las fases de negación, ira, negociación, depresión y aceptación a través de narrativas personales y lecciones aprendidas.</p>
+    </div>
+</section>
+
+<!-- Detalles del Libro -->
+<section id="detalles" class="py-16 bg-gray-100">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-semibold text-center mb-8">Detalles del Libro</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <img src="https://source.unsplash.com/featured/?book" alt="Libro" class="rounded">
+            <div>
+                <h3 class="text-2xl font-semibold mb-4">Lo que Encontrarás</h3>
+                <p class="mb-4">Una descripción detallada de los capítulos, temas importantes tratados en el libro, y cómo cada sección te lleva más cerca de la comprensión del verdadero significado de "EVOLUCIÓN".</p>
+                <p>Incluye ejercicios prácticos, reflexiones y estrategias para enfrentar desafíos similares.</p>
+            </div>
+        </div>
     </div>
 </section>
 
 <!-- Sobre el Autor -->
-<section id="sobre-el-autor" class="py-16 bg-gray-100">
+<section id="sobre-el-autor" class="py-16 bg-white">
     <div class="container mx-auto px-6">
         <div class="text-center">
             <h2 class="text-3xl font-semibold mb-8">Sobre el Autor</h2>
             <p class="max-w-2xl mx-auto mb-8">Una breve historia sobre mí y el camino que me llevó a escribir EVOLUCIÓN, incluyendo mi recuperación y cómo superé los desafíos.</p>
-            <img src="tu-foto-aquí.jpg" alt="Autor" class="mx-auto rounded-full w-48 h-48 object-cover mb-8">
+            <img src="https://source.unsplash.com/featured/?author" alt="Autor" class="mx-auto rounded-full w-48 h-48 object-cover mb-8">
         </div>
     </div>
 </section>
 
 <!-- Galería de Imágenes -->
-<section id="galeria" class="py-16 bg-white">
+<section id="galeria" class="py-16 bg-gray-100">
     <div class="container mx-auto px-6">
         <h2 class="text-3xl font-semibold text-center mb-8">Galería</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <img src="imagen-1.jpg" alt="Imagen 1" class="rounded">
-            <img src="imagen-2.jpg" alt="Imagen 2" class="rounded">
-            <img src="imagen-3.jpg" alt="Imagen 3" class="rounded">
+            <img src="https://source.unsplash.com/featured/?hope" alt="Esperanza" class="rounded">
+            <img src="https://source.unsplash.com/featured/?struggle" alt="Lucha" class="rounded">
+            <img src="https://source.unsplash.com/featured/?victory" alt="Victoria" class="rounded">
             <!-- Añade más imágenes según sea necesario -->
         </div>
     </div>
 </section>
 
 <!-- Testimonios -->
-<section id="testimonios" class="py-16 bg-gray-100">
+<section id="testimonios" class="py-16 bg-white">
     <div class="container mx-auto px-6">
         <h2 class="text-3xl font-semibold text-center mb-8">Testimonios</h2>
         <div class="flex flex-wrap justify-center">
@@ -63,36 +80,77 @@
     </div>
 </section>
 
-<!-- Formulario de Contacto -->
-<section id="contacto" class="py-16 bg-white">
+<!-- Contacto y Suscripción -->
+<section id="contacto" class="py-16 bg-gray-100">
     <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-semibold text-center mb-8">Contacto</h2>
-        <form action="tu-endpoint-de-formulario" method="POST" class="max-w-xl mx-auto">
-            <div class="mb-4">
-                <label for="nombre" class="block mb-2">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" class="w-full px-3 py-2 border rounded" required>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div>
+                <h2 class="text-3xl font-semibold mb-8">Contacto</h2>
+                <form action="tu-endpoint-de-formulario" method="POST">
+                    <div class="mb-4">
+                        <label for="nombre" class="block mb-2">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" class="w-full px-3 py-2 border rounded" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block mb-2">Email:</label>
+                        <input type="email" id="email" name="email" class="w-full px-3 py-2 border rounded" required>
+                    </div>
+                    <div class="mb-4">
+                                       <label for="mensaje" class="block mb-2">Mensaje:</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" class="w-full px-3 py-2 border rounded" required></textarea>
+                    </div>
+                    <button type="submit" class="px-8 py-3 bg-blue-500 rounded hover:bg-blue-700 transition duration-300">Enviar</button>
+                </form>
             </div>
-            <div class="mb-4">
-                <label for="email" class="block mb-2">Email:</label>
-                <input type="email" id="email" name="email" class="w-full px-3 py-2 border rounded" required>
+            <div>
+                <h2 class="text-3xl font-semibold mb-8">Suscríbete</h2>
+                <p>Regístrate para recibir actualizaciones sobre nuevos capítulos, blogs y eventos relacionados con "EVOLUCIÓN".</p>
+                <form action="tu-endpoint-de-suscripcion" method="POST" class="mt-8">
+                    <div class="mb-4">
+                        <input type="email" id="email-suscripcion" name="email" placeholder="Tu email aquí" class="w-full px-3 py-2 border rounded" required>
+                    </div>
+                    <button type="submit" class="px-8 py-3 bg-green-500 rounded hover:bg-green-700 transition duration-300">Suscribirse</button>
+                </form>
             </div>
-            <div class="mb-4">
-                <label for="mensaje" class="block mb-2">Mensaje:</label>
-                <textarea id="mensaje" name="mensaje" rows="4" class="w-full px-3 py-2 border rounded" required></textarea>
-            </div>
-            <button type="submit" class="px-8 py-3 bg-blue-500 rounded hover:bg-blue-700 transition duration-300">Enviar</button>
-        </form>
+        </div>
     </div>
 </section>
 
 <!-- Compra el Libro -->
-<section id="compra" class="py-16 bg-gray-100">
+<section id="compra" class="py-16 bg-white">
     <div class="container mx-auto px-6 text-center">
         <h2 class="text-3xl font-semibold mb-8">Compra el Libro</h2>
-        <p class="mb-8">Una invitación a adquirir tu libro para conocer tu historia completa. Puede ser un enlace a una tienda online o información sobre cómo comprarlo directamente.</p>
-        <a href="URL-de-compra" class="px-8 py-3 bg-green-500 rounded hover:bg-green-700 transition duration-300">Comprar Ahora</a>
+        <p class="mb-8">No pierdas la oportunidad de sumergirte completamente en esta historia de superación. Adquiere tu copia hoy mismo.</p>
+        <a href="URL-de-compra" class="px-8 py-3 bg-red-500 rounded hover:bg-red-700 transition duration-300">Comprar Ahora</a>
     </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq" class="py-16 bg-gray-100">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-semibold text-center mb-8">Preguntas Frecuentes</h2>
+        <div class="max-w-xl mx-auto">
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-2">¿Este libro es adecuado para mí?</h3>
+                <p>"EVOLUCIÓN" es para cualquier persona que busque inspiración en historias de vida reales, superación de adversidades y transformación personal.</p>
+            </div>
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-2">¿Dónde puedo comprar el libro?</h3>
+                <p>Puedes adquirirlo en línea a través del enlace "Comprar Ahora" de esta página, o en librerías seleccionadas.</p>
+            </div>
+            <!-- Añade más preguntas y respuestas según sea necesario -->
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-8 bg-black text-white">
+    <div class="container mx-auto px-6 text-center">
+        <p>© 2024 EVOLUCIÓN. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
 </body>
 </html>
+
+Continua
