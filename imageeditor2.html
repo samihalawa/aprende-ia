@@ -1,39 +1,25 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Editor de Imágenes con Fabric.js</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.1/fabric.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Imágenes</title>
+    <!-- CDN de Photopea -->
+    <script src="https://cdn.jsdelivr.net/npm/photopea/applibs/photopea.js"></script>
 </head>
 <body>
+    <h1>Editor de Imágenes Online</h1>
+    <div id="photopea"></div>
 
-<h2>Editor de Imágenes Simple con Fabric.js</h2>
-
-<!-- Asegúrate de que el canvas tenga un tamaño específico -->
-<canvas id="c" width="800" height="600" style="border:1px solid #ccc"></canvas>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var canvas = new fabric.Canvas('c');
-
-    // Carga una imagen de placeholder en el canvas
-    fabric.Image.fromURL('https://via.placeholder.com/500x300', function(oImg) {
-      // Este código se ejecuta una vez que la imagen se ha cargado completamente
-
-      // Puedes ajustar la escala de la imagen según sea necesario
-      oImg.scale(0.5).set({
-        left: canvas.width / 4,
-        top: canvas.height / 4,
-        angle: 0
-      });
-
-      // Centra la imagen en el canvas y la añade al mismo
-      canvas.centerObject(oImg);
-      canvas.add(oImg);
-      canvas.renderAll(); // Asegúrate de renderizar el canvas después de añadir la imagen
-    });
-  });
-</script>
-
+    <script>
+        // Código para integrar Photopea en la página
+        var photopea = document.createElement("script");
+        photopea.src = "https://cdn.jsdelivr.net/npm/photopea/applibs/photopea.js";
+        photopea.async = true;
+        photopea.onload = function() {
+            console.log("Photopea cargado correctamente.");
+        };
+        document.head.appendChild(photopea);
+    </script>
 </body>
 </html>
