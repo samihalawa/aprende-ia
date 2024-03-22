@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="themes">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/themes.vvveb.com/market/themes/minimal-personal-portfolio.zip!/" />
+      <root url="jar://$PROJECT_DIR$/themes.vvveb.com/market/themes/poco.zip!/" />
+      <root url="jar://$PROJECT_DIR$/themes.vvveb.com/market/themes/play-bootstrap.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
