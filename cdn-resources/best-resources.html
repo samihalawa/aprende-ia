@@ -1,3 +1,84 @@
+
+#!/bin/bash
+
+# Generate an HTML file with 30 embedded iframes showcasing various open source projects.
+# Each iframe contains a link to an example or demo that highlights the project's capabilities,
+# focusing on Components & CSS, Graphs, Interactive Tools, Templates, and Code Editors.
+# This script creates a curated, visually appealing showcase of useful and popular open source projects.
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Open Source Showcase Examples</title>
+        <style>
+            body { font-family: Arial, sans-serif; }
+            .iframe-container { margin: 20px 0; }
+            iframe { width: 100%; height: 500px; border: 0; }
+            h2 { color: #333; }
+        </style>
+    </head>
+    <body>
+    <h1>Open Source Showcase Examples</h1>
+
+    <script>
+        const categories = {
+            'Components & CSS': [
+                'https://tailwindcss.com/docs/examples', // Tailwind CSS Examples - Explore beautifully designed and implemented examples using Tailwind CSS.
+                'https://material-ui.com/getting-started/templates/', // Material-UI Templates - Jumpstart your project with stunning Material-UI templates.
+                'https://ant.design/docs/react/introduce', // Ant Design Pro - A high-quality collection of React components out of the box.
+                'https://getbootstrap.com/docs/5.0/examples/', // Bootstrap Examples - Explore a wide range of Bootstrap-based projects.
+            ],
+            'Graphs': [
+                'https://www.chartjs.org/samples/latest/', // Chart.js Samples - Demonstrations of Chart.js capabilities with various chart types.
+                'https://observablehq.com/@d3/gallery', // D3.js Gallery - A collection of D3.js examples showcasing its powerful visualization capabilities.
+                'https://visjs.github.io/vis-network/examples/', // Vis.js Network Examples - Interactive network/ graph examples using Vis.js.
+            ],
+            'Interactive Tools': [
+                'https://socket.io/demos/chat/', // Socket.IO Chat Demo - Real-time chat application example using Socket.IO.
+                'https://threejs.org/examples/', // Three.js Examples - Showcase of 3D creations using Three.js.
+                'https://p5js.org/examples/', // p5.js Examples - A variety of examples demonstrating the creative potential of p5.js.
+            ],
+            'Templates': [
+                'https://html5up.net/uploads/demos/massively/', // HTML5 UP Massively - A visually stunning, responsive template perfect for blogs.
+                'https://templated.co/linear', // TEMPLATED Linear - A sleek, modern template designed for professional and personal use.
+                'https://startbootstrap.com/theme/creative/', // Start Bootstrap Creative - A one-page creative theme for Bootstrap.
+            ],
+            'Code Editors': [
+                'https://codemirror.net/demo/', // CodeMirror Demo - Explore the capabilities of CodeMirror through live examples.
+                'https://ace.c9.io/build/kitchen-sink.html', // Ace Editor Kitchen Sink - A comprehensive demonstration of Ace Editor's features.
+                'https://monaco-editor.github.io/monaco-editor/playground.html', // Monaco Editor Playground - Experiment with the Monaco Editor's extensive features.
+            ]
+        };
+
+        function generateIframes() {
+            Object.entries(categories).forEach(([category, urls]) => {
+                const section = document.createElement('section');
+                const header = document.createElement('h2');
+                header.textContent = category;
+                section.appendChild(header);
+
+                urls.forEach(url => {
+                    const container = document.createElement('div');
+                    container.className = 'iframe-container';
+                    const iframe = document.createElement('iframe');
+                    iframe.src = url;
+                    container.appendChild(iframe);
+                    section.appendChild(container);
+                });
+
+                document.body.appendChild(section);
+            });
+        }
+
+        window.onload = generateIframes;
+    </script>
+    </body>
+    </html>
+
+
+<!--
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -78,7 +159,7 @@
                     <iframe style="height:600px" class="rounded-lg w-full h-full" src="https://getbootstrap.com/docs/5.3/getting-started/introduction/#starter-template" frameborder="0"></iframe>
                 </div>
             </div>
-            <!-- Add more iframes as needed -->
+            &lt;!&ndash; Add more iframes as needed &ndash;&gt;
             <div class="bg-white p-4 rounded-lg shadow-md">
                 <h3 class="text-xl font-semibold mb-4">AG Grid</h3>
                 <p class="mb-4">JavaScript Data Grid Library.</p>
@@ -141,3 +222,4 @@
     <footer class="text-center text-gray-500 text-sm py-4">© 2024 Todos los derechos reservados</footer>
 </body>
 </html>
+-->
