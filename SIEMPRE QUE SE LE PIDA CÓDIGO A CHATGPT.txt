@@ -1,0 +1,1 @@
+Leberaje on external resources as components, prebuild elements and styling frameworks… using CDN´s available so we can i achieve the most using the last writen from scratch
