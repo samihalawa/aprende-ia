@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estimación de Ventas</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="bg-gray-100 font-sans">
+    <div class="container mx-auto py-8 px-4">
+        <header class="text-center">
+            <h1 class="text-4xl font-bold">Estimación de Ventas</h1>
+            <p class="text-lg text-gray-600">Analiza las tendencias y predicciones para tu negocio</p>
+        </header>
+
+        <section id="predictions" class="mt-12">
+            <h2 class="text-2xl font-semibold mb-6">Predicciones de Ventas Mensuales</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <!-- Sales Prediction Chart -->
+                    <canvas id="salesPredictionChart" class="w-full h-auto"></canvas>
+                </div>
+                <div class="flex items-center" data-aos="fade-left">
+                    <div>
+                        <p class="text-lg text-gray-700 mb-4">Nuestras predicciones se basan en análisis de datos avanzados para ayudarte a planificar mejor tus estrategias de ventas.</p>
+                        <p class="text-lg text-gray-700 mb-4">Para lograr un crecimiento constante, es esencial entender las tendencias de ventas y adaptar tu estrategia en consecuencia.</p>
+                        <p class="text-lg text-gray-700 mb-4">Aquí te proporcionamos un análisis detallado de las ventas estimadas, las ventas por producto, los ingresos mensuales y la participación de mercado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <button id="exportButton" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded mt-8">Exportar como PDF</button>
+    </div>
+
+    <!-- JavaScript para inicializar los gráficos -->
+    <script>
+        // Inicialización de Chart.js
+        document.addEventListener('DOMContentLoaded', function () {
+            // Configuración del gráfico de predicción de ventas
+            var ctxSalesPrediction = document.getElementById('salesPredictionChart').getContext('2d');
+            var salesPredictionChart = new Chart(ctxSalesPrediction, {
+                type: 'line',
+                data: {
+                    labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio"],
+                    datasets: [{
+                        label: "Ventas Estimadas",
+                        data: [12000, 19000, 17000, 15000, 20000, 18000, 25000],
+                        fill: false,
+                        borderColor: 'rgb(75, 192, 192)',
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Función para exportar la página como PDF
+            document.getElementById('exportButton').addEventListener('click', function () {
+                var element = document.body;
+                html2pdf().from(element).save();
+            });
+        });
+    </script>
+    <!-- html2pdf.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+</body>
+
+</html>

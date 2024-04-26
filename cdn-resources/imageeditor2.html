@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Imágenes</title>
+    <!-- CDN de Photopea -->
+    <script src="https://cdn.jsdelivr.net/npm/photopea/applibs/photopea.js"></script>
+</head>
+<body>
+    <h1>Editor de Imágenes Online</h1>
+    <div id="photopea"></div>
+
+    <script>
+        // Código para integrar Photopea en la página
+        var photopea = document.createElement("script");
+        photopea.src = "https://cdn.jsdelivr.net/npm/photopea/applibs/photopea.js";
+        photopea.async = true;
+        photopea.onload = function() {
+            console.log("Photopea cargado correctamente.");
+        };
+        document.head.appendChild(photopea);
+    </script>
+</body>
+</html>

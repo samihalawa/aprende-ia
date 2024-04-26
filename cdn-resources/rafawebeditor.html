@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RafaWebEditor</title>
+    <!-- CDN de CKEditor -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/37.0.1/classic/ckeditor.js"></script>
+    <!-- CDN de Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <!-- Encabezado -->
+    <header class="bg-blue-500 text-white p-4">
+        <h1 class="text-3xl text-center font-bold">RafaWebEditor</h1>
+    </header>
+
+    <!-- Contenido principal -->
+    <div class="container mx-auto my-8 px-4">
+        <div id="editor" class="bg-white p-4 rounded-lg shadow-lg"></div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer class="bg-gray-700 text-white text-center py-4">
+        <p>&copy; 2024 RafaWebEditor. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Script para inicializar CKEditor -->
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ), {
+                toolbar: {
+                    items: [
+                        'heading',
+                        '|',
+                        'bold',
+                        'italic',
+                        'underline',
+                        'strikethrough',
+                        '|',
+                        'bulletedList',
+                        'numberedList',
+                        '|',
+                        'indent',
+                        'outdent',
+                        '|',
+                        'link',
+                        'imageInsert',
+                        'mediaEmbed',
+                        '|',
+                        'undo',
+                        'redo',
+                        '|',
+                        'alignment',
+                        'blockQuote',
+                        'codeBlock',
+                        '|',
+                        'fontFamily',
+                        'fontColor',
+                        'fontSize',
+                        'highlight',
+                        '|',
+                        'horizontalLine',
+                        'removeFormat',
+                        '|',
+                        'subscript',
+                        'superscript',
+                        '|',
+                        'todoList'
+                    ],
+                    shouldNotGroupWhenFull: true
+                },
+                language: 'es',
+                image: {
+                    toolbar: [
+                        'imageTextAlternative',
+                        'imageStyle:full',
+                        'imageStyle:side'
+                    ]
+                },
+                table: {
+                    contentToolbar: [
+                        'tableColumn',
+                        'tableRow',
+                        'mergeTableCells',
+                        'tableCellProperties',
+                        'tableProperties'
+                    ]
+                },
+                licenseKey: '',
+            } )
+            .then( editor => {
+                console.log( 'Editor de texto cargado correctamente.', editor );
+            } )
+            .catch( error => {
+                console.error( 'Error al cargar el editor de texto:', error );
+            } );
+    </script>
+</body>
+</html>

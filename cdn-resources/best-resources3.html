@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de IA General & Programación Sin Código</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+<div class="container mx-auto py-8">
+    <h1 class="text-5xl font-bold text-center mb-8">Curso de IA General & Programación Sin Código</h1>
+    <h2 class="text-2xl font-bold text-center mb-8">Frameworks & Librerías Optimizados Para ChatGPT</h2>
+    <div id="categories" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+</div>
+
+<script>
+    async function loadCsvFiles() {
+        const categoriesCsv = await fetch('resources-categories.csv').then(response => response.text());
+        const resourcesCsv = await fetch('resources-data.csv').then(response => response.text());
+        return {
+            categories: parseCsv(categoriesCsv),
+            resources: parseCsv(resourcesCsv)
+        };
+    }
+
+    function parseCsv(csv) {
+        return csv.split('\n').map(row => row.split(','));
+    }
+
+    async function renderCategories() {
+        const { categories, resources } = await loadCsvFiles();
+        const categoriesContainer = document.getElementById('categories');
+
+        categories.forEach(category => {
+            const categoryId = parseInt(category[0]);
+            const categoryName = category[1];
+            const categoryDescription = category[2];
+            const categoryResources = resources.filter(resource => parseInt(resource[6]) === categoryId);
+
+            const categoryDiv = document.createElement('div');
+            categoryDiv.classList.add('bg-white', 'p-4', 'rounded-lg', 'shadow-md');
+
+            const title = document.createElement('h3');
+            title.classList.add('text-xl', 'font-semibold', 'mb-4');
+            title.textContent = categoryName;
+            categoryDiv.appendChild(title);
+
+            const description = document.createElement('p');
+            description.classList.add('mb-4');
+            description.textContent = categoryDescription;
+            categoryDiv.appendChild(description);
+
+            categoryResources.forEach(resource => {
+                const iframeDiv = document.createElement('div');
+
+                iframeDiv.classList.add('aspect-w-16', 'aspect-h-9');
+
+                const iframe = document.createElement('iframe');
+                iframe.classList.add('rounded-lg', 'w-full', 'h-full');
+                iframe.src = resource[4];
+                iframe.frameBorder = 0;
+
+                iframeDiv.appendChild(iframe);
+                categoryDiv.appendChild(iframeDiv);
+            });
+
+            categoriesContainer.appendChild(categoryDiv);
+        });
+    }
+
+    renderCategories();
+</script>
+</body>
+</html>
