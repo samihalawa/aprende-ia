@@ -1,0 +1,428 @@
+<article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 class="heading-element" dir="auto">Comparación de Tipos de Post en WordPress: Etiquetas vs CPT</h1><a id="user-content-comparación-de-tipos-de-post-en-wordpress-etiquetas-vs-cpt" class="anchor" aria-label="Permalink: Comparación de Tipos de Post en WordPress: Etiquetas vs CPT" href="#comparación-de-tipos-de-post-en-wordpress-etiquetas-vs-cpt"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">WordPress permite crear diversos tipos de contenido utilizando publicaciones, páginas y tipos de post personalizados (CPT). Este artículo compara el uso de <strong>etiquetas</strong> en publicaciones estándar con la creación de un <strong>CPT</strong> para recetas utilizando el plugin CPT UI. Analizaremos ventajas, inconvenientes y limitaciones de cada enfoque.
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/181cabae2602351cd28d8819ef03363c2f453315bc97cdc2322a0aafc321af05/68747470733a2f2f7777772e706578656c732e636f6d2f7365617263682f736f6674776172652f"><img src="https://camo.githubusercontent.com/181cabae2602351cd28d8819ef03363c2f453315bc97cdc2322a0aafc321af05/68747470733a2f2f7777772e706578656c732e636f6d2f7365617263682f736f6674776172652f" alt="" data-canonical-src="https://www.pexels.com/search/software/" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Tipos de Post en WordPress</h2><a id="user-content-tipos-de-post-en-wordpress" class="anchor" aria-label="Permalink: Tipos de Post en WordPress" href="#tipos-de-post-en-wordpress"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Publicaciones Estándar y Páginas</h3><a id="user-content-publicaciones-estándar-y-páginas" class="anchor" aria-label="Permalink: Publicaciones Estándar y Páginas" href="#publicaciones-estándar-y-páginas"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><strong>Publicaciones</strong>: Entradas de blog en orden cronológico.
+<strong>Páginas</strong>: Contenido estático (e.g., "Acerca de").</p>
+<p dir="auto"><strong>Ventajas</strong>:</p>
+<ul dir="auto">
+<li><strong>Simplicidad</strong>: Fácil de usar.</li>
+<li><strong>SEO</strong>: Optimización integrada.</li>
+<li><strong>Organización</strong>: Claridad en el contenido.</li>
+</ul>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/1c012b97ac53ac9cae273a7f23f4c8786a0815809467d4bdf0bf3069a4ddfefa/68747470733a2f2f736f757263652e756e73706c6173682e636f6d2f66656174757265642f3f746563686e6f6c6f67792c736f667477617265253230253232536f667477617265253230446576656c6f706d656e74253232"><img src="https://camo.githubusercontent.com/1c012b97ac53ac9cae273a7f23f4c8786a0815809467d4bdf0bf3069a4ddfefa/68747470733a2f2f736f757263652e756e73706c6173682e636f6d2f66656174757265642f3f746563686e6f6c6f67792c736f667477617265253230253232536f667477617265253230446576656c6f706d656e74253232" alt="Software Development" data-canonical-src="https://source.unsplash.com/featured/?technology,software%20%22Software%20Development%22" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Uso de Etiquetas y Categorías</h3><a id="user-content-uso-de-etiquetas-y-categorías" class="anchor" aria-label="Permalink: Uso de Etiquetas y Categorías" href="#uso-de-etiquetas-y-categorías"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><strong>Etiquetas</strong>: Clasificación granular de publicaciones.
+<strong>Categorías</strong>: Agrupación de publicaciones en grandes temas.</p>
+<p dir="auto"><strong>Ventajas</strong>:</p>
+<ul dir="auto">
+<li><strong>Flexibilidad</strong>: Múltiples etiquetas por publicación.</li>
+<li><strong>SEO</strong>: Mejora la comprensión del contenido.</li>
+<li><strong>Facilidad</strong>: Implementación simple.</li>
+</ul>
+<p dir="auto"><strong>Inconvenientes</strong>:</p>
+<ul dir="auto">
+<li><strong>Estructura limitada</strong>: No aptas para contenido complejo.</li>
+<li><strong>Desorganización</strong>: Gestión cuidadosa requerida.</li>
+</ul>
+<section class="js-render-needs-enrichment render-needs-enrichment position-relative" data-identity="614730fd-fd8f-4978-a9af-8678bbd2fffa" data-host="https://viewscreen.githubusercontent.com" data-src="https://viewscreen.githubusercontent.com/markdown/mermaid?docs_host=https%3A%2F%2Fdocs.github.com" data-type="mermaid" aria-label="mermaid rendered output container">
+  <div class="js-render-enrichment-target" data-json="{&quot;data&quot;:&quot;graph TD;\n    A[Post] --&amp;gt; B[Etiquetas]\n    A --&amp;gt; C[Categorías]\n    B --&amp;gt; D[Mejor SEO]\n    C --&amp;gt; E[Mejor Organización]\n&quot;}" data-plain="graph TD;
+    A[Post] --> B[Etiquetas]
+    A --> C[Categorías]
+    B --> D[Mejor SEO]
+    C --> E[Mejor Organización]
+" dir="auto"><!----><!----><div class="position-absolute top-0 pr-2 right-0 d-flex flex-justify-end flex-items-center">
+    
+    <details class="details-reset details-overlay details-overlay-dark" style="display: contents">
+      <summary role="button" aria-label="Open dialog" class="btn my-2 mr-2 p-0 d-inline-flex" aria-haspopup="dialog">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" class="octicon m-2">
+          <path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z"></path>
+        </svg>
+      </summary>
+      <details-dialog class="Box Box--overlay render-full-screen d-flex flex-column anim-fade-in fast" aria-label="mermaid rendered container" role="dialog" aria-modal="true">
+        <div>
+          <button aria-label="Close dialog" data-close-dialog="" type="button" data-view-component="true" class="Link--muted btn-link position-absolute render-full-screen-close">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:text-bottom" class="octicon octicon-x">
+              <path fill-rule="evenodd" d="M5.72 5.72a.75.75 0 011.06 0L12 10.94l5.22-5.22a.75.75 0 111.06 1.06L13.06 12l5.22 5.22a.75.75 0 11-1.06 1.06L12 13.06l-5.22 5.22a.75.75 0 01-1.06-1.06L10.94 12 5.72 6.78a.75.75 0 010-1.06z"></path>
+            </svg>
+          </button>
+          <div class="Box-body border-0" role="presentation"></div>
+        </div>
+      </details-dialog>
+    </details>
+  <!----><clipboard-copy class="btn my-2 js-clipboard-copy p-0 d-inline-flex tooltipped-no-delay" role="button" data-copy-feedback="Copied!" data-tooltip-direction="s" aria-label="Copy mermaid code" value="graph TD;
+    A[Post] --> B[Etiquetas]
+    A --> C[Categorías]
+    B --> D[Mejor SEO]
+    C --> E[Mejor Organización]
+" tabindex="0">
+    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" class="octicon octicon-copy js-clipboard-copy-icon m-2">
+      <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+      <path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+    </svg>
+    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none m-2">
+      <path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path>
+    </svg>
+  </clipboard-copy>
+  </div><!---->
+    <div class="render-container color-bg-transparent js-render-target p-0 is-render-automatic is-render-requested is-render-ready" data-identity="614730fd-fd8f-4978-a9af-8678bbd2fffa" data-host="https://viewscreen.githubusercontent.com" data-type="mermaid" style="height: 296.5px;">
+      <iframe role="presentation" class="render-viewer" sandbox="allow-scripts allow-same-origin allow-top-navigation allow-popups" src="https://viewscreen.githubusercontent.com/markdown/mermaid?docs_host=https%3A%2F%2Fdocs.github.com&amp;color_mode=light&amp;__hrp=eyJtdXRlciI6ZmFsc2UsIndhaXRGb3JEb2N1bWVudEJvZHkiOnRydWUsIndhaXRGb3JEb2N1bWVudFJlYWR5IjpmYWxzZSwibm9QYXRjaGVzIjp0cnVlLCJ3aWR0aCI6IjEwMCUiLCJoZWlnaHQiOiIxMDAlIiwiZW5naW5lTmFtZSI6ImVuZ2luZS0wLjEuMCIsImZyYW1lTmFtZSI6ImVuZ2luZS0wLjEuMDoxODExNjcwOTczIn0%3D#614730fd-fd8f-4978-a9af-8678bbd2fffa" name="614730fd-fd8f-4978-a9af-8678bbd2fffa" data-content="{&quot;data&quot;:&quot;graph TD;\n    A[Post] --&amp;gt; B[Etiquetas]\n    A --&amp;gt; C[Categorías]\n    B --&amp;gt; D[Mejor SEO]\n    C --&amp;gt; E[Mejor Organización]\n&quot;}">
+      </iframe>
+    </div>
+  <!----><!----></div>
+  <span class="js-render-enrichment-loader d-flex flex-justify-center flex-items-center width-full" style="min-height:100px" role="presentation" hidden="">
+    <svg style="box-sizing: content-box; color: var(--color-icon-primary);" width="16" height="16" viewBox="0 0 16 16" fill="none" data-view-component="true" class="octospinner mx-auto anim-rotate">
+  <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-opacity="0.25" stroke-width="2" vector-effect="non-scaling-stroke" fill="none"></circle>
+  <path d="M15 8a7.002 7.002 0 00-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>
+</svg>
+  </span>
+<div class="js-render-enrichment-fallback"><div class="render-plaintext-hidden" dir="auto">
+      <pre lang="mermaid" aria-label="Raw mermaid code">graph TD;
+    A[Post] --&gt; B[Etiquetas]
+    A --&gt; C[Categorías]
+    B --&gt; D[Mejor SEO]
+    C --&gt; E[Mejor Organización]
+</pre>
+    </div></div></section>
+
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e0fe2e54af50c92259d9452ef8396c9d0e119d1c5a1872f0a11d49177724d822/68747470733a2f2f696d616765732e756e73706c6173682e636f6d2f70686f746f2d313532323134383534333735312d6631343137313564343239313f63726f703d656e74726f70792663733d74696e7973726762266669743d6d617826666d3d6a706726697869643d4d6e777a4e6a55794f5877776644463863325668636d4e6f66444a386648647961585270626d64385a5735384d487838664877784e6a45324e5467354d4463792669786c69623d72622d312e322e3126713d383026773d31303830"><img src="https://camo.githubusercontent.com/e0fe2e54af50c92259d9452ef8396c9d0e119d1c5a1872f0a11d49177724d822/68747470733a2f2f696d616765732e756e73706c6173682e636f6d2f70686f746f2d313532323134383534333735312d6631343137313564343239313f63726f703d656e74726f70792663733d74696e7973726762266669743d6d617826666d3d6a706726697869643d4d6e777a4e6a55794f5877776644463863325668636d4e6f66444a386648647961585270626d64385a5735384d487838664877784e6a45324e5467354d4463792669786c69623d72622d312e322e3126713d383026773d31303830" alt="Woman Writing" data-canonical-src="https://images.unsplash.com/photo-1522148543751-f141715d4291?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fHdyaXRpbmd8ZW58MHx8fHwxNjE2NTg5MDcy&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Tipos de Post Personalizados (CPT) con CPT UI</h2><a id="user-content-tipos-de-post-personalizados-cpt-con-cpt-ui" class="anchor" aria-label="Permalink: Tipos de Post Personalizados (CPT) con CPT UI" href="#tipos-de-post-personalizados-cpt-con-cpt-ui"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Qué es un CPT</h3><a id="user-content-qué-es-un-cpt" class="anchor" aria-label="Permalink: Qué es un CPT" href="#qué-es-un-cpt"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Un <strong>Custom Post Type (CPT)</strong> es un tipo de contenido personalizado que se adapta a necesidades específicas.</p>
+<p dir="auto"><strong>Ventajas</strong>:</p>
+<ul dir="auto">
+<li><strong>Estructura personalizada</strong>: Contenido específico.</li>
+<li><strong>Organización clara</strong>: Mejor gestión del contenido.</li>
+<li><strong>Extensibilidad</strong>: Campos personalizados y taxonomías.</li>
+</ul>
+<p dir="auto"><strong>Inconvenientes</strong>:</p>
+<ul dir="auto">
+<li><strong>Curva de aprendizaje</strong>: Requiere conocimiento técnico.</li>
+<li><strong>Compatibilidad</strong>: No todos los plugins/temas son compatibles.</li>
+<li><strong>Mantenimiento</strong>: Mayor cuidado a largo plazo.</li>
+</ul>
+<section class="js-render-needs-enrichment render-needs-enrichment position-relative" data-identity="d2c00bfa-631d-4de4-8016-7da04bbf16d6" data-host="https://viewscreen.githubusercontent.com" data-src="https://viewscreen.githubusercontent.com/markdown/mermaid?docs_host=https%3A%2F%2Fdocs.github.com" data-type="mermaid" aria-label="mermaid rendered output container">
+  <div class="js-render-enrichment-target" data-json="{&quot;data&quot;:&quot;graph TD;\n    F[CPT] --&amp;gt; G[Estructura Personalizada]\n    F --&amp;gt; H[Mejor Organización]\n    F --&amp;gt; I[Extensibilidad]\n&quot;}" data-plain="graph TD;
+    F[CPT] --> G[Estructura Personalizada]
+    F --> H[Mejor Organización]
+    F --> I[Extensibilidad]
+" dir="auto"><!----><!----><div class="position-absolute top-0 pr-2 right-0 d-flex flex-justify-end flex-items-center">
+    
+    <details class="details-reset details-overlay details-overlay-dark" style="display: contents">
+      <summary role="button" aria-label="Open dialog" class="btn my-2 mr-2 p-0 d-inline-flex" aria-haspopup="dialog">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" class="octicon m-2">
+          <path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z"></path>
+        </svg>
+      </summary>
+      <details-dialog class="Box Box--overlay render-full-screen d-flex flex-column anim-fade-in fast" aria-label="mermaid rendered container" role="dialog" aria-modal="true">
+        <div>
+          <button aria-label="Close dialog" data-close-dialog="" type="button" data-view-component="true" class="Link--muted btn-link position-absolute render-full-screen-close">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:text-bottom" class="octicon octicon-x">
+              <path fill-rule="evenodd" d="M5.72 5.72a.75.75 0 011.06 0L12 10.94l5.22-5.22a.75.75 0 111.06 1.06L13.06 12l5.22 5.22a.75.75 0 11-1.06 1.06L12 13.06l-5.22 5.22a.75.75 0 01-1.06-1.06L10.94 12 5.72 6.78a.75.75 0 010-1.06z"></path>
+            </svg>
+          </button>
+          <div class="Box-body border-0" role="presentation"></div>
+        </div>
+      </details-dialog>
+    </details>
+  <!----><clipboard-copy class="btn my-2 js-clipboard-copy p-0 d-inline-flex tooltipped-no-delay" role="button" data-copy-feedback="Copied!" data-tooltip-direction="s" aria-label="Copy mermaid code" value="graph TD;
+    F[CPT] --> G[Estructura Personalizada]
+    F --> H[Mejor Organización]
+    F --> I[Extensibilidad]
+" tabindex="0">
+    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" class="octicon octicon-copy js-clipboard-copy-icon m-2">
+      <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+      <path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+    </svg>
+    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none m-2">
+      <path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path>
+    </svg>
+  </clipboard-copy>
+  </div><!---->
+    <div class="render-container color-bg-transparent js-render-target p-0 is-render-automatic is-render-requested is-render-ready" data-identity="d2c00bfa-631d-4de4-8016-7da04bbf16d6" data-host="https://viewscreen.githubusercontent.com" data-type="mermaid" style="height: 213px;">
+      <iframe role="presentation" class="render-viewer" sandbox="allow-scripts allow-same-origin allow-top-navigation allow-popups" src="https://viewscreen.githubusercontent.com/markdown/mermaid?docs_host=https%3A%2F%2Fdocs.github.com&amp;color_mode=light&amp;__hrp=eyJtdXRlciI6ZmFsc2UsIndhaXRGb3JEb2N1bWVudEJvZHkiOnRydWUsIndhaXRGb3JEb2N1bWVudFJlYWR5IjpmYWxzZSwibm9QYXRjaGVzIjp0cnVlLCJ3aWR0aCI6IjEwMCUiLCJoZWlnaHQiOiIxMDAlIiwiZW5naW5lTmFtZSI6ImVuZ2luZS0wLjEuMCIsImZyYW1lTmFtZSI6ImVuZ2luZS0wLjEuMDoxODExNjcwOTczIn0%3D#d2c00bfa-631d-4de4-8016-7da04bbf16d6" name="d2c00bfa-631d-4de4-8016-7da04bbf16d6" data-content="{&quot;data&quot;:&quot;graph TD;\n    F[CPT] --&amp;gt; G[Estructura Personalizada]\n    F --&amp;gt; H[Mejor Organización]\n    F --&amp;gt; I[Extensibilidad]\n&quot;}">
+      </iframe>
+    </div>
+  <!----><!----></div>
+  <span class="js-render-enrichment-loader d-flex flex-justify-center flex-items-center width-full" style="min-height:100px" role="presentation" hidden="">
+    <svg style="box-sizing: content-box; color: var(--color-icon-primary);" width="16" height="16" viewBox="0 0 16 16" fill="none" data-view-component="true" class="octospinner mx-auto anim-rotate">
+  <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-opacity="0.25" stroke-width="2" vector-effect="non-scaling-stroke" fill="none"></circle>
+  <path d="M15 8a7.002 7.002 0 00-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>
+</svg>
+  </span>
+<div class="js-render-enrichment-fallback"><div class="render-plaintext-hidden" dir="auto">
+      <pre lang="mermaid" aria-label="Raw mermaid code">graph TD;
+    F[CPT] --&gt; G[Estructura Personalizada]
+    F --&gt; H[Mejor Organización]
+    F --&gt; I[Extensibilidad]
+</pre>
+    </div></div></section>
+
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/b948648f2d767d5bc8fe27999147e33656660f3d728e168c7595bbdf49515b68/68747470733a2f2f696d616765732e756e73706c6173682e636f6d2f70686f746f2d313532323230323137363938382d3636323733633266643535663f63726f703d656e74726f70792663733d74696e7973726762266669743d6d617826666d3d6a706726697869643d4d6e777a4e6a55794f5877776644463863325668636d4e6f66444a386647526c63327430623342385a5735384d487838664877784e6a45324e5467354d4463792669786c69623d72622d312e322e3126713d383026773d31303830"><img src="https://camo.githubusercontent.com/b948648f2d767d5bc8fe27999147e33656660f3d728e168c7595bbdf49515b68/68747470733a2f2f696d616765732e756e73706c6173682e636f6d2f70686f746f2d313532323230323137363938382d3636323733633266643535663f63726f703d656e74726f70792663733d74696e7973726762266669743d6d617826666d3d6a706726697869643d4d6e777a4e6a55794f5877776644463863325668636d4e6f66444a386647526c63327430623342385a5735384d487838664877784e6a45324e5467354d4463792669786c69623d72622d312e322e3126713d383026773d31303830" alt="Desktop Workspace" data-canonical-src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGRlc2t0b3B8ZW58MHx8fHwxNjE2NTg5MDcy&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Ejemplo: Crear un CPT para Recetas</h3><a id="user-content-ejemplo-crear-un-cpt-para-recetas" class="anchor" aria-label="Permalink: Ejemplo: Crear un CPT para Recetas" href="#ejemplo-crear-un-cpt-para-recetas"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li><strong>Instala el Plugin CPT UI</strong>.</li>
+<li><strong>Configura el CPT</strong>: Define nombre, estructura y campos.</li>
+<li><strong>Añade Taxonomías Personalizadas</strong>.</li>
+<li><strong>Añade Contenido</strong>.</li>
+</ol>
+<section class="js-render-needs-enrichment render-needs-enrichment position-relative" data-identity="2294ff52-9d46-44f2-8d93-7eb5938e2018" data-host="https://viewscreen.githubusercontent.com" data-src="https://viewscreen.githubusercontent.com/markdown/mermaid?docs_host=https%3A%2F%2Fdocs.github.com" data-type="mermaid" aria-label="mermaid rendered output container">
+  <div class="js-render-enrichment-target" data-json="{&quot;data&quot;:&quot;graph TD;\n    J[Instalar CPT UI] --&amp;gt; K[Configurar CPT]\n    K --&amp;gt; L[Añadir Taxonomías]\n    L --&amp;gt; M[Añadir Contenido]\n&quot;}" data-plain="graph TD;
+    J[Instalar CPT UI] --> K[Configurar CPT]
+    K --> L[Añadir Taxonomías]
+    L --> M[Añadir Contenido]
+" dir="auto"><!----><!----><div class="position-absolute top-0 pr-2 right-0 d-flex flex-justify-end flex-items-center">
+    
+    <details class="details-reset details-overlay details-overlay-dark" style="display: contents">
+      <summary role="button" aria-label="Open dialog" class="btn my-2 mr-2 p-0 d-inline-flex" aria-haspopup="dialog">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" class="octicon m-2">
+          <path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z"></path>
+        </svg>
+      </summary>
+      <details-dialog class="Box Box--overlay render-full-screen d-flex flex-column anim-fade-in fast" aria-label="mermaid rendered container" role="dialog" aria-modal="true">
+        <div>
+          <button aria-label="Close dialog" data-close-dialog="" type="button" data-view-component="true" class="Link--muted btn-link position-absolute render-full-screen-close">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:text-bottom" class="octicon octicon-x">
+              <path fill-rule="evenodd" d="M5.72 5.72a.75.75 0 011.06 0L12 10.94l5.22-5.22a.75.75 0 111.06 1.06L13.06 12l5.22 5.22a.75.75 0 11-1.06 1.06L12 13.06l-5.22 5.22a.75.75 0 01-1.06-1.06L10.94 12 5.72 6.78a.75.75 0 010-1.06z"></path>
+            </svg>
+          </button>
+          <div class="Box-body border-0" role="presentation"></div>
+        </div>
+      </details-dialog>
+    </details>
+  <!----><clipboard-copy class="btn my-2 js-clipboard-copy p-0 d-inline-flex tooltipped-no-delay" role="button" data-copy-feedback="Copied!" data-tooltip-direction="s" aria-label="Copy mermaid code" value="graph TD;
+    J[Instalar CPT UI] --> K[Configurar CPT]
+    K --> L[Añadir Taxonomías]
+    L --> M[Añadir Contenido]
+" tabindex="0">
+    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" class="octicon octicon-copy js-clipboard-copy-icon m-2">
+      <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+      <path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+    </svg>
+    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none m-2">
+      <path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path>
+    </svg>
+  </clipboard-copy>
+  </div><!---->
+    <div class="render-container color-bg-transparent js-render-target p-0 is-render-automatic is-render-requested is-render-ready" data-identity="2294ff52-9d46-44f2-8d93-7eb5938e2018" data-host="https://viewscreen.githubusercontent.com" data-type="mermaid" style="height: 380px;">
+      <iframe role="presentation" class="render-viewer" sandbox="allow-scripts allow-same-origin allow-top-navigation allow-popups" src="https://viewscreen.githubusercontent.com/markdown/mermaid?docs_host=https%3A%2F%2Fdocs.github.com&amp;color_mode=light&amp;__hrp=eyJtdXRlciI6ZmFsc2UsIndhaXRGb3JEb2N1bWVudEJvZHkiOnRydWUsIndhaXRGb3JEb2N1bWVudFJlYWR5IjpmYWxzZSwibm9QYXRjaGVzIjp0cnVlLCJ3aWR0aCI6IjEwMCUiLCJoZWlnaHQiOiIxMDAlIiwiZW5naW5lTmFtZSI6ImVuZ2luZS0wLjEuMCIsImZyYW1lTmFtZSI6ImVuZ2luZS0wLjEuMDoxODExNjcwOTczIn0%3D#2294ff52-9d46-44f2-8d93-7eb5938e2018" name="2294ff52-9d46-44f2-8d93-7eb5938e2018" data-content="{&quot;data&quot;:&quot;graph TD;\n    J[Instalar CPT UI] --&amp;gt; K[Configurar CPT]\n    K --&amp;gt; L[Añadir Taxonomías]\n    L --&amp;gt; M[Añadir Contenido]\n&quot;}">
+      </iframe>
+    </div>
+  <!----><!----></div>
+  <span class="js-render-enrichment-loader d-flex flex-justify-center flex-items-center width-full" style="min-height:100px" role="presentation" hidden="">
+    <svg style="box-sizing: content-box; color: var(--color-icon-primary);" width="16" height="16" viewBox="0 0 16 16" fill="none" data-view-component="true" class="octospinner mx-auto anim-rotate">
+  <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-opacity="0.25" stroke-width="2" vector-effect="non-scaling-stroke" fill="none"></circle>
+  <path d="M15 8a7.002 7.002 0 00-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>
+</svg>
+  </span>
+<div class="js-render-enrichment-fallback"><div class="render-plaintext-hidden" dir="auto">
+      <pre lang="mermaid" aria-label="Raw mermaid code">graph TD;
+    J[Instalar CPT UI] --&gt; K[Configurar CPT]
+    K --&gt; L[Añadir Taxonomías]
+    L --&gt; M[Añadir Contenido]
+</pre>
+    </div></div></section>
+
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/d9ef0da231a4a603c1a71ac6f8c5c2f1fd767cbea750676e87e035885e247158/68747470733a2f2f696d616765732e756e73706c6173682e636f6d2f70686f746f2d313531323035383536343336362d6339613439366530343136373f63726f703d656e74726f70792663733d74696e7973726762266669743d6d617826666d3d6a706726697869643d4d6e777a4e6a55794f5877776644463863325668636d4e6f66444a3866474e7662327470626d636c4d6a4277636d396a5a584e7a6647567566444238664878384d5459784e6a55344f5441334d672669786c69623d72622d312e322e3126713d383026773d31303830"><img src="https://camo.githubusercontent.com/d9ef0da231a4a603c1a71ac6f8c5c2f1fd767cbea750676e87e035885e247158/68747470733a2f2f696d616765732e756e73706c6173682e636f6d2f70686f746f2d313531323035383536343336362d6339613439366530343136373f63726f703d656e74726f70792663733d74696e7973726762266669743d6d617826666d3d6a706726697869643d4d6e777a4e6a55794f5877776644463863325668636d4e6f66444a3866474e7662327470626d636c4d6a4277636d396a5a584e7a6647567566444238664878384d5459784e6a55344f5441334d672669786c69623d72622d312e322e3126713d383026773d31303830" alt="Cooking Process" data-canonical-src="https://images.unsplash.com/photo-1512058564366-c9a496e04167?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGNvb2tpbmclMjBwcm9jZXNzfGVufDB8fHx8MTYxNjU4OTA3Mg&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Comparación: Etiquetas vs CPT</h2><a id="user-content-comparación-etiquetas-vs-cpt" class="anchor" aria-label="Permalink: Comparación: Etiquetas vs CPT" href="#comparación-etiquetas-vs-cpt"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Ventajas de Usar Etiquetas</h3><a id="user-content-ventajas-de-usar-etiquetas" class="anchor" aria-label="Permalink: Ventajas de Usar Etiquetas" href="#ventajas-de-usar-etiquetas"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><strong>Simplicidad</strong>: Ideal para usuarios sin experiencia técnica.</li>
+<li><strong>Rapidez</strong>: No requiere configuración adicional.</li>
+<li><strong>SEO Integrado</strong>: Beneficios SEO sin configuración extra.</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Ventajas de Usar CPT</h3><a id="user-content-ventajas-de-usar-cpt" class="anchor" aria-label="Permalink: Ventajas de Usar CPT" href="#ventajas-de-usar-cpt"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><strong>Personalización</strong>: Estructura y organización completamente personalizadas.</li>
+<li><strong>Escalabilidad</strong>: Manejo de grandes cantidades de contenido diverso.</li>
+<li><strong>Extensibilidad</strong>: Campos y taxonomías personalizados.</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Tabla Comparativa</h3><a id="user-content-tabla-comparativa" class="anchor" aria-label="Permalink: Tabla Comparativa" href="#tabla-comparativa"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>Etiquetas</th>
+<th>CPT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Facilidad de uso</strong></td>
+<td>Alta</td>
+<td>Media</td>
+</tr>
+<tr>
+<td><strong>Flexibilidad</strong></td>
+<td>Media</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td><strong>SEO</strong></td>
+<td>Integrado</td>
+<td>Requiere configuración adicional</td>
+</tr>
+<tr>
+<td><strong>Organización</strong></td>
+<td>Limitada</td>
+<td>Avanzada</td>
+</tr>
+<tr>
+<td><strong>Curva de aprendizaje</strong></td>
+<td>Baja</td>
+<td>Media/Alta</td>
+</tr>
+<tr>
+<td><strong>Compatibilidad</strong></td>
+<td>Amplia</td>
+<td>Variable</td>
+</tr>
+<tr>
+<td><strong>Mantenimiento</strong></td>
+<td>Bajo</td>
+<td>Medio/Alto</td>
+</tr>
+<tr>
+<td><strong>Uso recomendado</strong></td>
+<td>Blogs y sitios simples</td>
+<td>Sitios complejos con contenido variado</td>
+</tr>
+</tbody>
+</table>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/68790678253848a7d73bb7607d6cf71ad4f1248daa96d10d49aa398c73489a99/68747470733a2f2f696d616765732e756e73706c6173682e636f6d2f70686f746f2d313531393638313339333738342d6431323032363739333362613f63726f703d656e74726f70792663733d74696e7973726762266669743d6d617826666d3d6a706726697869643d4d6e777a4e6a55794f5877776644463863325668636d4e6f66444a3866474e7359584e7a61575a7059324630615739756647567566444238664878384d5459784e6a55344f5441334d672669786c69623d72622d312e322e3126713d383026773d31303830"><img src="https://camo.githubusercontent.com/68790678253848a7d73bb7607d6cf71ad4f1248daa96d10d49aa398c73489a99/68747470733a2f2f696d616765732e756e73706c6173682e636f6d2f70686f746f2d313531393638313339333738342d6431323032363739333362613f63726f703d656e74726f70792663733d74696e7973726762266669743d6d617826666d3d6a706726697869643d4d6e777a4e6a55794f5877776644463863325668636d4e6f66444a3866474e7359584e7a61575a7059324630615739756647567566444238664878384d5459784e6a55344f5441334d672669786c69623d72622d312e322e3126713d383026773d31303830" alt="Comparison Diagram" data-canonical-src="https://images.unsplash.com/photo-1519681393784-d120267933ba?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGNsYXNzaWZpY2F0aW9ufGVufDB8fHx8MTYxNjU4OTA3Mg&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Conclusión</h2><a id="user-content-conclusión" class="anchor" aria-label="Permalink: Conclusión" href="#conclusión"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">La elección entre <strong>etiquetas</strong> y <strong>CPT</strong> depende de las necesidades de tu sitio web. Las etiquetas son ideales para blogs simples, mientras que los CPT son perfectos para sitios más complejos que requieren una organización detallada y personalizada.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">3 Sugerencias de Títulos SEO</h3><a id="user-content-3-sugerencias-de-títulos-seo" class="anchor" aria-label="Permalink: 3 Sugerencias de Títulos SEO" href="#3-sugerencias-de-títulos-seo"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li><strong>"Comparación Completa: Etiquetas vs Tipos de Post Personalizados en WordPress"</strong></li>
+<li><strong>"Mejores Prácticas para Organizar Contenido en WordPress: Etiquetas y CPT"</strong></li>
+<li><strong>"Guía Definitiva para Usar Tipos de Post Personalizados en WordPress"</strong></li>
+</ol>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">20 Preguntas Frecuentes</h3><a id="user-content-20-preguntas-frecuentes" class="anchor" aria-label="Permalink: 20 Preguntas Frecuentes" href="#20-preguntas-frecuentes"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li>
+<p dir="auto"><strong>¿Qué es un tipo de post personalizado en WordPress?</strong></p>
+<ul dir="auto">
+<li>Un tipo de post personalizado (CPT) es un tipo de contenido que puedes definir y personalizar según las necesidades de tu sitio web.</li>
+</ul>
+</li>
+<li>
+<p dir="auto"><strong>¿Qué son las taxonomías en WordPress?</strong></p>
+<ul dir="auto">
+<li>Las taxonomías son formas de agrupar contenido en WordPress, como categorías y etiquetas.</li>
+</ul>
+</li>
+<li>
+<p dir="auto"><strong>¿Cuál es la diferencia entre una etiqueta y una categoría en WordPress?</strong></p>
+<ul dir="auto">
+<li>Las categorías son jerárquicas y se utilizan para agrupar publicaciones en grandes temas, mientras que las etiquetas no son jerárquicas y se usan para describir detalles específicos del contenido.</li>
+</ul>
+</li>
+<li>
+<p dir="auto"><strong>¿Cómo se crean tipos de post personalizados en WordPress?</strong></p>
+<ul dir="auto">
+<li>Se pueden crear utilizando código o plugins como CPT UI, definiendo el nombre, estructura y campos personalizados necesarios.</li>
+</ul>
+</li>
+<li>
+<p dir="auto"><strong>¿Qué ventajas ofrecen los tipos de post personalizados?</strong></p>
+<ul dir="auto">
+<li>Ofrecen una estructura específica, mejor organización y extensibilidad para campos y taxonomías personalizadas.</li>
+</ul>
+</li>
+<li>
+<p dir="auto"><strong>¿Es difícil aprender a usar CPT en WordPress?</strong></p>
+<ul dir="auto">
+<li>Requiere cierto conocimiento técnico, pero con tutoriales y documentación es accesible.</li>
+</ul>
+</li>
+<li>
+<p dir="auto"><strong>¿Afectan los CPT al rendimiento del sitio?</strong></p>
+<ul dir="auto">
+<li>Si se gestionan adecuadamente, no deberían afectar negativamente al rendimiento.</li>
+</ul>
+</li>
+<li>
+<p dir="auto"><strong>¿Qué plugins son compatibles con los CPT?</strong></p>
+<ul dir="auto">
+<li>La mayoría</li>
+</ul>
+</li>
+</ol>
+<p dir="auto">de los plugins populares son compatibles, aunque siempre es bueno verificar la compatibilidad específica.</p>
+<ol start="9" dir="auto">
+<li>
+<p dir="auto"><strong>¿Puedo usar CPT para cualquier tipo de contenido?</strong></p>
+<ul dir="auto">
+<li>Sí, se pueden adaptar a cualquier necesidad específica de contenido, como productos, eventos, testimonios, etc.</li>
+</ul>
+</li>
+<li>
+<p dir="auto"><strong>¿Cómo afectan las etiquetas al SEO?</strong></p>
+<ul dir="auto">
+<li>Las etiquetas ayudan a los motores de búsqueda a entender mejor el contenido, mejorando la indexación y relevancia.</li>
+</ul>
+</li>
+<li>
+<p dir="auto"><strong>¿Cuál es el límite de etiquetas que puedo usar en una publicación?</strong></p>
+<ul dir="auto">
+<li>No hay un límite estricto, pero se recomienda usar etiquetas relevantes y no abusar de ellas.</li>
+</ul>
+</li>
+<li>
+<p dir="auto"><strong>¿Puedo convertir una publicación estándar en un CPT?</strong></p>
+<ul dir="auto">
+<li>Sí, existen plugins y métodos manuales para convertir publicaciones estándar en CPT.</li>
+</ul>
+</li>
+<li>
+<p dir="auto"><strong>¿Los CPT son adecuados para sitios de comercio electrónico?</strong></p>
+<ul dir="auto">
+<li>Sí, especialmente para organizar productos de manera personalizada y detallada.</li>
+</ul>
+</li>
+<li>
+<p dir="auto"><strong>¿Qué desventajas tienen las etiquetas en WordPress?</strong></p>
+<ul dir="auto">
+<li>Pueden llevar a desorganización si no se gestionan adecuadamente y no ofrecen una estructura personalizada.</li>
+</ul>
+</li>
+<li>
+<p dir="auto"><strong>¿Puedo usar categorías y etiquetas en CPT?</strong></p>
+<ul dir="auto">
+<li>Sí, los CPT pueden utilizar categorías y etiquetas estándar, además de taxonomías personalizadas.</li>
+</ul>
+</li>
+<li>
+<p dir="auto"><strong>¿Cómo gestiono las etiquetas en WordPress?</strong></p>
+<ul dir="auto">
+<li>Desde el panel de administración, en la sección de publicaciones, puedes añadir, editar y eliminar etiquetas.</li>
+</ul>
+</li>
+<li>
+<p dir="auto"><strong>¿Es necesario usar un plugin para crear CPT?</strong></p>
+<ul dir="auto">
+<li>No es necesario, pero plugins como CPT UI facilitan el proceso.</li>
+</ul>
+</li>
+<li>
+<p dir="auto"><strong>¿Qué pasa si desactivo un plugin de CPT?</strong></p>
+<ul dir="auto">
+<li>El contenido seguirá existiendo, pero puede perder funcionalidades específicas hasta que se reactive el plugin.</li>
+</ul>
+</li>
+<li>
+<p dir="auto"><strong>¿Cómo mejoro la compatibilidad de CPT con mi tema?</strong></p>
+<ul dir="auto">
+<li>Verifica que tu tema soporte CPT o consulta la documentación del tema para hacer ajustes necesarios.</li>
+</ul>
+</li>
+<li>
+<p dir="auto"><strong>¿Qué pasa si uso demasiadas etiquetas?</strong></p>
+<ul dir="auto">
+<li>Puede llevar a desorganización y confusión, por lo que se recomienda usar etiquetas relevantes y gestionarlas cuidadosamente.</li>
+</ul>
+</li>
+</ol>
+</article>
